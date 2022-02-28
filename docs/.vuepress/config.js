@@ -12,9 +12,9 @@ module.exports = {
         // tags:"/tags",
         nav: [
             // { text: 'Home', link: '/' },
-            { text: 'HTML', link: '/src/HTML/' },
+            { text: '一些记录', link: '/src/一些记录/' },
             { text: '题', link: '/src/题/' },
-            { text: '操作手册', link: '/src/操作手册/' }
+            { text: '操作手册', link: '/src/操作手册/开发运行此项目' }
         ],
         displayAllHeaders: true //显示所有页面的标题链接
     },
