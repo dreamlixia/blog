@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>js快排 | My Blog</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="This is a blog.">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b6bfb1ac.css" as="style"><link rel="preload" href="/blog/assets/js/app.68cf7f91.js" as="script"><link rel="preload" href="/blog/assets/js/2.fed9f880.js" as="script"><link rel="preload" href="/blog/assets/js/17.f63ba487.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.1fa0009e.js"><link rel="prefetch" href="/blog/assets/js/11.3e84bd00.js"><link rel="prefetch" href="/blog/assets/js/12.4ea77004.js"><link rel="prefetch" href="/blog/assets/js/13.137ba4f6.js"><link rel="prefetch" href="/blog/assets/js/14.8470a09c.js"><link rel="prefetch" href="/blog/assets/js/15.8921b7ac.js"><link rel="prefetch" href="/blog/assets/js/16.da8e34db.js"><link rel="prefetch" href="/blog/assets/js/18.7c8f1e2d.js"><link rel="prefetch" href="/blog/assets/js/19.0299d6d7.js"><link rel="prefetch" href="/blog/assets/js/20.337fc3ef.js"><link rel="prefetch" href="/blog/assets/js/3.472d00f6.js"><link rel="prefetch" href="/blog/assets/js/4.0efab4ce.js"><link rel="prefetch" href="/blog/assets/js/5.6d32f951.js"><link rel="prefetch" href="/blog/assets/js/6.d0bc2010.js"><link rel="prefetch" href="/blog/assets/js/7.a8797844.js"><link rel="prefetch" href="/blog/assets/js/8.91b98902.js"><link rel="prefetch" href="/blog/assets/js/9.d51bdc90.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b6bfb1ac.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="https://cdn4.buysellads.net/uu/1/41334/1550855401-cc_light.png" alt="My Blog" class="logo"> <span class="site-name can-hide">My Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/src/一些记录/" class="nav-link">
+  一些记录
+</a></div><div class="nav-item"><a href="/blog/src/题/" class="nav-link">
+  题
+</a></div><div class="nav-item"><a href="/blog/src/操作手册/开发运行此项目.html" class="nav-link">
+  操作手册
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/src/一些记录/" class="nav-link">
+  一些记录
+</a></div><div class="nav-item"><a href="/blog/src/题/" class="nav-link">
+  题
+</a></div><div class="nav-item"><a href="/blog/src/操作手册/开发运行此项目.html" class="nav-link">
+  操作手册
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog/src/%E9%A2%98/" aria-current="page" class="sidebar-link">目录导航</a></li><li><a href="/blog/src/题/js快排.html" class="active sidebar-link">js快排</a></li><li><a href="/blog/src/题/判断字符串是否对称.html" class="sidebar-link">判断字符串是否对称</a></li><li><a href="/blog/src/题/字符串翻转.html" class="sidebar-link">字符串翻转</a></li><li><a href="/blog/src/题/对角线打印二维数组.html" class="sidebar-link">对角线打印二维数组</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h4 id="js快排"><a href="#js快排" class="header-anchor">#</a> js快排</h4> <hr> <div class="language- extra-class"><pre class="language-text"><code>function sort(arr) {
+    // 临界条件
+    if (arr.length &lt;= 1) return arr
+    // 取基准点
+    let index = Math.floor(arr.length / 2)
+    // 取基准元素
+    let cur = arr.splice(index, 1)[0]
+    // 定义两个数组
+    let left = []
+    let right = []
+    // 循环
+    for (var i = 0; i &lt; arr.length; i++) {
+        // 元素小于基准元素，追加到left[]
+        // 元素大于基准元素，追加到right[]
+        if (arr[i] &lt; cur) {
+            left.push(arr[i])
+        } else {
+            right.push(arr[i])
+        }
+    }
+    // 递归
+    return sort(left).concat([cur], sort(right))
+}
+
+var arr = [3, 10, 4, 5, 6, 23, 50, 12, 44, 9]
+
+console.log(sort(arr))
+
+//[3, 4, 5, 6, 9, 10, 12, 23, 44, 50]
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/src/%E9%A2%98/" class="prev router-link-active">
+        目录导航
+      </a></span> <span class="next"><a href="/blog/src/题/判断字符串是否对称.html">
+        判断字符串是否对称
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.68cf7f91.js" defer></script><script src="/blog/assets/js/2.fed9f880.js" defer></script><script src="/blog/assets/js/17.f63ba487.js" defer></script>
+  </body>
+</html>
