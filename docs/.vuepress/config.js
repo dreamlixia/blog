@@ -13,7 +13,7 @@ module.exports = {
         nav: [
             // { text: 'Home', link: '/' },
             { text: 'HTML', link: '/src/HTML/' },
-            { text: 'JS', link: '/src/JS/' },
+            { text: '题', link: '/src/题/' },
             { text: '操作手册', link: '/src/操作手册/' }
         ],
         displayAllHeaders: true //显示所有页面的标题链接
