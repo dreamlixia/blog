@@ -12,4 +12,8 @@
 
 ### 运行：
 
-#### npm run dev 或 vuepress dev docs
+#### npm run docs:dev
+
+### 打包
+
+#### npm run docs:build
