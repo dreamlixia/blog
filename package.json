@@ -5,9 +5,9 @@
   "main": "layouts/Layout.vue",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "deploy-gh": "GH=1 yarn docs:build && bash scripts/deploy-gh.sh"
+    "dev": "vuepress dev docs",
+    "build": "node ./builds/addComponents.js && vuepress build docs && node ./builds/delComponents.js",
+    "deploy-gh": "GH=1 yarn build && bash scripts/deploy-gh.sh"
   },
   "keywords": [],
   "author": "",
