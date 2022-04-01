@@ -13,6 +13,11 @@ export default {
     let body = document.querySelector('.gitalk-container');
     let script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js';
+
+    var headHTML = document.getElementsByTagName('head')[0].innerHTML;
+    headHTML += '<link type="text/css" rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">';
+    document.getElementsByTagName('head')[0].innerHTML = headHTML;
+
     body.appendChild(script);
     script.onload = () => {
       const commentConfig = {
