@@ -1,3 +1,41 @@
+#### 判断回文数/判断字符串是否对称
+```
+/**
+* 判断回文数:
+给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。
+
+回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
+
+例如，121 是回文，而 123 不是。
+
+* 输入：x = 121
+* 输出：true
+* 输入：x = -121
+* 输出：false
+* 解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。
+*/
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function(x) {
+    var num = String(x);
+    var leftP = 0;
+    var rightP = num.length - 1;
+    while(leftP < rightP){
+        if(num[leftP] != num[rightP]){
+            return false
+        }
+        leftP ++
+        rightP --
+    }
+    return true
+};
+
+var result = isPalindrome(1021)
+// true
+```
+
 #### 两数之和
 ```
 /**
@@ -99,13 +137,59 @@ console.log(sort(arr))
 //[3, 4, 5, 6, 9, 10, 12, 23, 44, 50]
 ```
 
+#### 罗马数字转整数
+```
+/**
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
+特殊情况
+I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。
+X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。
+C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
+*/
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var romanToInt = function(s) {
+    let eg = {
+        'I': 1,
+        'IV': 4,
+        'V': 5,
+        'IX': 9,
+        'X': 10,
+        'XL': 40,
+        'L': 50,
+        'XC': 90,
+        'C': 100,
+        'CD': 400,
+        'D': 500,
+        'CM': 900,
+        'M': 1000
+    }
+    let sum = 0
+    for(var i = 0; i < s.length;) {
+        if(i + 1 < s.length && eg[s.substring(i, i + 2)]) { 
+            sum += eg[s.substring(i, i + 2)]
+            i += 2
+        }else{
+            sum += eg[s.substring(i, i + 1)]
+            i ++
+        }
+    }
+    return sum
+};
+s = "MCMXCIV"//"IX"//"IV"//"XII"//"IV"//"III"
+var result = romanToInt(s)
+console.log(result) // 1994
+```
+
 #### 对角线打印二维数组
----
-
-```
-```
-
-#### 判断字符串是否对称
 ---
 
 ```
