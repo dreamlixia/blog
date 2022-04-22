@@ -1,4 +1,6 @@
 #### 判断回文数/判断字符串是否对称
+---
+
 ```
 /**
 * 判断回文数:
@@ -37,6 +39,8 @@ var result = isPalindrome(1021)
 ```
 
 #### 两数之和
+---
+
 ```
 /**
 输入：nums = [2,7,11,15], target = 9
@@ -138,6 +142,7 @@ console.log(sort(arr))
 ```
 
 #### 罗马数字转整数
+---
 ```
 /**
 I             1
@@ -189,8 +194,95 @@ var result = romanToInt(s)
 console.log(result) // 1994
 ```
 
+#### 合并两个有序链表
+---
+```
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} list1
+ * @param {ListNode} list2
+ * @return {ListNode}
+ */
+
+// 迭代
+function mergeTwoList(l1, l2) {
+    const head = {next: null}
+    let p = head
+    while(l1 && l2){
+        if(l1.val < l2.val){
+            p.next = l1
+            l1 = l1.next
+        }else{
+            p.next = l2
+            l2 = l2.next
+        }
+        p = p.next
+    }
+    p.next = l1 === null ? l2 : l1
+    return head.next
+}
+
+// 递归
+function mergeTwoLists(l1, l2) {
+    if(l1 === null) {
+        return l2
+    }
+    if(l2 === null) {
+        return l1
+    }
+    if(l1.val < l2.val){
+        l1.next = mergeTwoLists(l1.next, l2)
+        return l1
+    }else{
+        l2.next = mergeTwoLists(l1, l2.next)
+        return l2
+    }
+}
+
+var l1 = [1,2,4]
+var l2 = [1,3,4]
+console.log(mergeTwoLists(l1, l2)) // [1,1,2,3,4,4]
+```
+
 #### 对角线打印二维数组
 ---
 
 ```
+function findDiagonalOrder (nums) {
+    if(!nums.length) return []
+    let arr = [], result = []
+    for(var i = 0; i < nums.length; i ++){
+        let rows = nums[i]
+        for(var j = 0; j < rows.length; j ++){
+            if(!arr[i+j]) arr[i+j] = []
+            arr[i+j].push(nums[i][j])
+        }
+    }
+    for(const rows of arr){
+        console.log('rows', rows)
+        result.push(...rows.reverse())
+    }
+    return result
+}
+var list = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+    [13, 14, 15, 16]
+]
+// console.log(findDiagonalOrder(list))
+// VM301525:18 rows [1]
+// VM301525:18 rows (2) [2, 5]
+// VM301525:18 rows (3) [3, 6, 9]
+// VM301525:18 rows (4) [4, 7, 10, 13]
+// VM301525:18 rows (3) [8, 11, 14]
+// VM301525:18 rows (2) [12, 15]
+// VM301525:18 rows [16]
+// VM301525:23 (16) [1, 5, 2, 9, 6, 3, 13, 10, 7, 4, 14, 11, 8, 15, 12, 16]
 ```
