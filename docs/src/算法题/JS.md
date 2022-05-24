@@ -179,7 +179,7 @@ var romanToInt = function(s) {
     }
     let sum = 0
     for(var i = 0; i < s.length;) {
-        if(i + 1 < s.length && eg[s.substring(i, i + 2)]) { 
+        if(i + 1 < s.length && eg[s.substring(i, i + 2)]) {
             sum += eg[s.substring(i, i + 2)]
             i += 2
         }else{
@@ -285,4 +285,44 @@ var list = [
 // VM301525:18 rows (2) [12, 15]
 // VM301525:18 rows [16]
 // VM301525:23 (16) [1, 5, 2, 9, 6, 3, 13, 10, 7, 4, 14, 11, 8, 15, 12, 16]
+```
+
+#### 打印/生成有效括号
+```
+/** 题目：
+ * 输入1，输出['()']
+ * 输入2，输出['()()', '(())']
+ * 输入3，输出['()()()', '(()())', '(())()', '()(())', '((()))']
+ */
+
+list: 存放最终输出结果的数组
+left: 已经生成的做括号个数
+right: 已经生成的右括号个数
+n: 需要生成括号的个数
+result: 已经生成好的括号结果
+
+function print(n) {
+    let list = []
+    function generate (left, right, n, result) {
+        // 如果left和right都已经生成够了n个，则返回result
+        if(left == n && right == n) {
+            list.push(result)
+        }
+        // 如果left<n, 则生成一个左括号, left + 1, 递归
+        if(left < n) {
+            generate(left + 1, right, n, result+'(')
+        }
+        // 如果left>right(括号合法问题，先左后右), 并且right<n, 则生成一个右括号, right + 1, 递归
+        if(left > right && right < n) {
+            generate(left, right + 1, n , result+')')
+        }
+    }
+    generate(0, 0, n, "")
+    return list
+}
+```
+
+#### 判断有效的括号
+```
+
 ```
