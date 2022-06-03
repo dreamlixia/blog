@@ -2,7 +2,7 @@ const getConfig = require('./lib')
 const config = getConfig('src')
 
 module.exports = {
-    title: "My Blog",
+    title: "Lynsey's blog", //"My Blog",
     description: "This is a blog.",
     base: '/blog/',
     themeConfig: {
@@ -12,7 +12,7 @@ module.exports = {
         // tags:"/tags",
         nav: [
             // { text: 'Home', link: '/' },
-            { text: '前端', link: '/src/前端/' },
+            { text: '前端', link: '/src/前端/基础知识/DNS/' },
             { text: '算法题', link: '/src/算法题/JS' },
             { text: '操作手册', link: '/src/操作手册/开发运行此项目' }
         ],
