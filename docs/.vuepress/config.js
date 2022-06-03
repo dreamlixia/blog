@@ -12,7 +12,7 @@ module.exports = {
         // tags:"/tags",
         nav: [
             // { text: 'Home', link: '/' },
-            { text: '一些记录', link: '/src/一些记录/' },
+            { text: '前端', link: '/src/前端/' },
             { text: '算法题', link: '/src/算法题/JS' },
             { text: '操作手册', link: '/src/操作手册/开发运行此项目' }
         ],
