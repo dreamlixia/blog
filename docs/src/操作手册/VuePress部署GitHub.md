@@ -57,7 +57,7 @@ title : 操作手册
 > ####  新建脚本 my-vuepress/scripts/deploy-gh.sh
 >```
 >set -e
->npm run docs:build
+>npm run build
 >cd docs/.vuepress/dist
 >git init
 >git add -A
