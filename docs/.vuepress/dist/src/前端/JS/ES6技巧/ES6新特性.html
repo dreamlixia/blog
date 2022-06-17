@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ES6新特性 | Lynsey&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="This is a blog.">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b6bfb1ac.css" as="style"><link rel="preload" href="/blog/assets/js/app.981a4f72.js" as="script"><link rel="preload" href="/blog/assets/js/2.4ccd4f94.js" as="script"><link rel="preload" href="/blog/assets/js/16.8b42c130.js" as="script"><link rel="preload" href="/blog/assets/js/11.c4ba9e87.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.ea29ba73.js"><link rel="prefetch" href="/blog/assets/js/12.cd8bd365.js"><link rel="prefetch" href="/blog/assets/js/13.3359989c.js"><link rel="prefetch" href="/blog/assets/js/14.7d47050a.js"><link rel="prefetch" href="/blog/assets/js/15.290a3062.js"><link rel="prefetch" href="/blog/assets/js/17.786ebdda.js"><link rel="prefetch" href="/blog/assets/js/18.61d1cb8a.js"><link rel="prefetch" href="/blog/assets/js/19.a5bc4817.js"><link rel="prefetch" href="/blog/assets/js/20.8c992798.js"><link rel="prefetch" href="/blog/assets/js/21.137fa377.js"><link rel="prefetch" href="/blog/assets/js/22.c249b27c.js"><link rel="prefetch" href="/blog/assets/js/23.053abe0b.js"><link rel="prefetch" href="/blog/assets/js/24.7f6bc35d.js"><link rel="prefetch" href="/blog/assets/js/25.f12fd597.js"><link rel="prefetch" href="/blog/assets/js/26.2dad0163.js"><link rel="prefetch" href="/blog/assets/js/27.8afa76b7.js"><link rel="prefetch" href="/blog/assets/js/28.25edc035.js"><link rel="prefetch" href="/blog/assets/js/29.e518bfc1.js"><link rel="prefetch" href="/blog/assets/js/3.a998d134.js"><link rel="prefetch" href="/blog/assets/js/30.6744961a.js"><link rel="prefetch" href="/blog/assets/js/31.5733e3d2.js"><link rel="prefetch" href="/blog/assets/js/32.ec692fcc.js"><link rel="prefetch" href="/blog/assets/js/33.034dd980.js"><link rel="prefetch" href="/blog/assets/js/34.b6fca1f8.js"><link rel="prefetch" href="/blog/assets/js/35.22ea2cd8.js"><link rel="prefetch" href="/blog/assets/js/36.316a2782.js"><link rel="prefetch" href="/blog/assets/js/37.86d4bba9.js"><link rel="prefetch" href="/blog/assets/js/38.04e7f657.js"><link rel="prefetch" href="/blog/assets/js/39.e6ed5cf3.js"><link rel="prefetch" href="/blog/assets/js/4.84a547cf.js"><link rel="prefetch" href="/blog/assets/js/40.51e70dc5.js"><link rel="prefetch" href="/blog/assets/js/41.f563c45d.js"><link rel="prefetch" href="/blog/assets/js/42.3f68224c.js"><link rel="prefetch" href="/blog/assets/js/43.e27f3ab6.js"><link rel="prefetch" href="/blog/assets/js/44.4c2b192f.js"><link rel="prefetch" href="/blog/assets/js/45.bcd49bc1.js"><link rel="prefetch" href="/blog/assets/js/46.a007ee6e.js"><link rel="prefetch" href="/blog/assets/js/47.547cd0f9.js"><link rel="prefetch" href="/blog/assets/js/48.140c28ad.js"><link rel="prefetch" href="/blog/assets/js/49.acfcae17.js"><link rel="prefetch" href="/blog/assets/js/5.3f9d35aa.js"><link rel="prefetch" href="/blog/assets/js/50.fcb0ae79.js"><link rel="prefetch" href="/blog/assets/js/51.e9e0e76a.js"><link rel="prefetch" href="/blog/assets/js/52.c6849b4f.js"><link rel="prefetch" href="/blog/assets/js/53.98c58fb1.js"><link rel="prefetch" href="/blog/assets/js/54.d60383b2.js"><link rel="prefetch" href="/blog/assets/js/55.f93957ea.js"><link rel="prefetch" href="/blog/assets/js/56.befcad68.js"><link rel="prefetch" href="/blog/assets/js/6.4a12ddd2.js"><link rel="prefetch" href="/blog/assets/js/7.8a31d312.js"><link rel="prefetch" href="/blog/assets/js/8.1804da50.js"><link rel="prefetch" href="/blog/assets/js/9.b0540685.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b6bfb1ac.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="https://cdn4.buysellads.net/uu/1/41334/1550855401-cc_light.png" alt="Lynsey's blog" class="logo"> <span class="site-name can-hide">Lynsey's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/src/前端/基础知识/DNS/" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/blog/src/算法题/JS.html" class="nav-link">
+  算法题
+</a></div><div class="nav-item"><a href="/blog/src/操作手册/开发运行此项目.html" class="nav-link">
+  操作手册
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/src/前端/基础知识/DNS/" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/blog/src/算法题/JS.html" class="nav-link">
+  算法题
+</a></div><div class="nav-item"><a href="/blog/src/操作手册/开发运行此项目.html" class="nav-link">
+  操作手册
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>GIT</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTTP</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JS</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>ES6技巧</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/src/前端/JS/ES6技巧/ES6新特性.html" class="active sidebar-link">ES6新特性</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/src/前端/JS/ES6技巧/normalize().html" class="sidebar-link">normalize()</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/src/前端/JS/ES6技巧/可选链操作符.html" class="sidebar-link">可选链操作符</a></li><li><a href="/blog/src/前端/JS/ES6技巧/数组去重.html" class="sidebar-link">数组去重</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/src/前端/JS/ES6技巧/空值合并运算符.html" class="sidebar-link">空值合并运算符</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/src/前端/JS/ES6技巧/过滤数组中值为false的值.html" class="sidebar-link">过滤数组中值为false的值</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>JS一行代码</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node.js</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/blog/src/%E5%89%8D%E7%AB%AF/" aria-current="page" class="sidebar-link">目录</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>基础知识</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="es6新特性"><a href="#es6新特性" class="header-anchor">#</a> ES6新特性</h3> <hr> <p>一、var、let、const的区别</p> <p>二、数组新增拓展</p> <p>三、对象新增拓展</p> <p>四、函数新增拓展</p> <p>五、Set 和 Map</p> <p>六、Promise</p> <p>七、Generator</p> <p>八、Proxy</p> <p>九、Module</p> <p>十、Decorator</p> <h4 id="一、var、let、const的区别"><a href="#一、var、let、const的区别" class="header-anchor">#</a> 一、var、let、const的区别</h4> <ol><li>var存在变量提升，let和const不存在变量提升，只能先声明，后使用，否则报错；</li></ol> <blockquote><p>变量提升：在声明之前就可以输出，值为undefined；</p></blockquote> <ol start="2"><li>let和const是块级作用域，只在声明的作用域内有效；</li> <li>let可以先声明，后赋值，const声明时必须进行初始化赋值；</li> <li>let声明变量，const声明常量，const只能进行一次赋值，声明后不可改变，var和let可以修改变量值；</li> <li>在同一作用域下let和const不能声明同名变量，而var可以重复声明变量；</li> <li>在es5中，顶层对象的属性和全局变量是等价的，用var声明的对象既是全局变量，也是顶层对象；</li></ol> <blockquote><p>顶层对象，在浏览器中指的是window对象，nodejs中指的是global对象；</p></blockquote> <p>能用const的情况尽量使用const，其他情况下大多数使用let，避免使用var</p> <h4 id="二、数组新增拓展"><a href="#二、数组新增拓展" class="header-anchor">#</a> 二、数组新增拓展</h4> <ol><li>扩展运算符 ...</li></ol> <blockquote><p>扩展运算符(…)用于取出参数对象中的所有可遍历属性，拷贝到当前对象之中</p></blockquote> <ul><li>可以将数组转化为参数序列</li></ul> <div class="language- extra-class"><pre class="language-text"><code>let arr = [1, 2, 3]
+console.log(...arr) // 1 2 3
+</code></pre></div><ul><li>可以复制数组</li></ul> <div class="language- extra-class"><pre class="language-text"><code>const arr1 = [1, 2, 3]
+const arr2 = [...arr1]
+console.log(arr2) // [1, 2, 3]
+</code></pre></div><ul><li>与解构赋值结合起来，生成新数组</li></ul> <div class="language- extra-class"><pre class="language-text"><code>const [first, ...reset] = [1,2,3,4,5]
+console.log(first) // 1
+console.log(reset) // [2,3,4,5]
+</code></pre></div><blockquote><p>如果将扩展运算符用于数组赋值，只能放在参数的最后一位，否则会报错。</p></blockquote> <ul><li>将字符串转化为真正的数组</li></ul> <div class="language- extra-class"><pre class="language-text"><code>console.log([...'hello']) // [&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;]
+</code></pre></div><ul><li>实现了 Iterator 接口的对象, 任何定义了遍历器（Iterator）接口的对象（参阅 Iterator 一章），都可以用扩展运算符转为真正的数组。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>let nodeList = document.querySelectorAll('div');
+let array = [...nodeList];
+</code></pre></div><p>上面代码中，querySelectorAll()方法返回的是一个NodeList对象。它不是数组，而是一个类似数组的对象。这时，扩展运算符可以将其转为真正的数组，原因就在于NodeList对象实现了 Iterator。</p> <blockquote><p>把某些数据结构转化为数组</p> <div class="language- extra-class"><pre class="language-text"><code>function foo() {
+   const args = [...arguments];
+}
+</code></pre></div><p>用于替换es5中的Array.prototype.slice.call(arguments)写法。</p></blockquote> <ol start="2"><li>构造函数新增方法</li></ol> <ul><li><p>Array.from()：将两类对象转化为真正的数组（包括 ES6 新增的数据结构 Set 和 Map）</p> <ul><li>类似数组的对象</li></ul> <div class="language- extra-class"><pre class="language-text"><code>let arrayLike = {
+    '0': 'a',
+    '1': 'b',
+    '2': 'c',
+    length: 3
+};
+
+// ES5 的写法
+var arr1 = [].slice.call(arrayLike); // ['a', 'b', 'c']
+
+// ES6 的写法
+let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
+</code></pre></div><p>实际应用中，常见的类似数组的对象是 DOM 操作返回的 NodeList 集合，以及函数内部的arguments对象。Array.from()都可以将它们转为真正的数组。</p> <div class="language- extra-class"><pre class="language-text"><code>// NodeList 对象
+let ps = document.querySelectorAll('p'); // querySelectorAll()方法返回的是一个类似数组的对象
+Array.from(ps).filter(p =&gt; {
+    return p.textContent.length &gt; 100;
+});
+
+// arguments 对象
+function foo() {
+    var args = Array.from(arguments);
+    // ...
+}
+</code></pre></div><ul><li>可遍历（iterable）的对象: 只要是部署了 Iterator 接口的数据结构，Array.from()都能将其转为数组</li></ul> <div class="language- extra-class"><pre class="language-text"><code>Array.from('hello')
+// ['h', 'e', 'l', 'l', 'o']
+
+let namesSet = new Set(['a', 'b'])
+Array.from(namesSet) // ['a', 'b']
+</code></pre></div><p>上面代码中，字符串和 Set 结构都具有 Iterator 接口，因此可以被Array.from()转为真正的数组。</p> <blockquote><p>Array.from()还可以接受一个函数作为第二个参数，作用类似于数组的map()方法，用来对每个元素进行处理，将处理后的值放入返回的数组。</p> <div class="language- extra-class"><pre class="language-text"><code>Array.from(arrayLike, x =&gt; x * x);
+// 等同于
+Array.from(arrayLike).map(x =&gt; x * x);
+
+Array.from([1, 2, 3], (x) =&gt; x * x)
+// [1, 4, 9]
+</code></pre></div></blockquote></li> <li><p>Array.of(): 用于将一组值，转换为数组。</p> <div class="language- extra-class"><pre class="language-text"><code>Array.of(3, 11, 8) // [3,11,8]
+Array.of(3) // [3]
+Array.of(3).length // 1
+</code></pre></div><ul><li>没有参数的时候，返回一个空数组</li></ul> <div class="language- extra-class"><pre class="language-text"><code>Array.of() // []
+</code></pre></div><ul><li>当参数只有一个的时候，实际上是指定数组的长度</li> <li>参数个数不少于 2 个时，Array()才会返回由参数组成的新数组</li></ul></li></ul> <ol start="3"><li>实例对象新增方法</li></ol> <ul><li>copyWithin()：将指定位置的成员复制到其他位置（会覆盖原有成员），然后返回当前数组
+<ul><li>target（必需）：从该位置开始替换数据。如果为负值，表示倒数。</li> <li>start（可选）：从该位置开始读取数据，默认为 0。如果为负值，表示从末尾开始计算。</li> <li>end（可选）：到该位置前停止读取数据，默认等于数组长度。如果为负值，表示从末尾开始计算。</li></ul></li> <li>find()、findIndex()：find()用于找出第一个符合条件的数组成员
+<ul><li>参数是一个回调函数，接受三个参数依次为当前的值、当前的位置和原数组</li> <li>findIndex返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1</li> <li>这两个方法都可以接受第二个参数，用来绑定回调函数的this对象</li></ul></li> <li>fill()：使用给定值，填充一个数组
+<ul><li>还可以接受第二个和第三个参数，用于指定填充的起始位置和结束位置</li> <li>注意，如果填充的类型为对象，则是浅拷贝</li></ul></li> <li>entries()，keys()，values()：
+<ul><li>keys()是对键名的遍历</li> <li>values()是对键值的遍历</li> <li>entries()是对键值对的遍历</li></ul></li> <li>includes()：用于判断数组是否包含给定的值
+<ul><li>方法的第二个参数表示搜索的起始位置，默认为0</li> <li>参数为负数则表示倒数的位置</li></ul></li> <li>flat()，flatMap()：将数组扁平化处理，返回一个新数组，对原数据没有影响
+<ul><li>flat()：默认只会“拉平”一层，如果想要“拉平”多层的嵌套数组，可以将flat()方法的参数写成一个整数，表示想要拉平的层数，默认为1</li> <li>flatMap()方法对原数组的每个成员执行一个函数相当于执行Array.prototype.map()，然后对返回值组成的数组执行flat()方法。该方法返回一个新数组，不改变原数组。flatMap()方法还可以有第二个参数，用来绑定遍历函数里面的this</li></ul></li></ul> <ol start="4"><li>数组的空位</li></ol> <blockquote><p>数组的空位指，数组的某一个位置没有任何值</p></blockquote> <ul><li>es6明确将数组的空位转为undefined</li></ul> <h4 id="三、对象新增拓展"><a href="#三、对象新增拓展" class="header-anchor">#</a> 三、对象新增拓展</h4> <ol><li>属性的简写</li></ol> <div class="language- extra-class"><pre class="language-text"><code>var payload = { 
+    id: id
+}
+// 可以写成
+var payload = { id }
+</code></pre></div><ol start="2"><li>属性名表达式</li></ol> <ul><li>ES6 允许字面量定义对象时，将表达式放在括号内。表达式还可以用于定义方法名：
+<ul><li>注意，属性名表达式与简洁表示法，不能同时使用，会报错</li> <li>注意，属性名表达式如果是一个对象，默认情况下会自动将对象转为字符串[object Object]</li></ul></li></ul> <ol start="3"><li>super关键字</li></ol> <ul><li>this关键字总是指向函数所在的当前对象，ES6 又新增了另一个类似的关键字super，指向当前对象的原型对象</li></ul> <ol start="4"><li>扩展运算符的应用</li></ol> <ul><li>在解构赋值中，未被读取的可遍历的属性，分配到指定的对象上面：
+<ul><li>注意：解构赋值必须是最后一个参数，否则会报错</li> <li>解构赋值是浅拷贝。对象的扩展运算符等同于使用Object.assign()方法</li></ul></li></ul> <ol start="5"><li>属性的遍历</li></ol> <ul><li>ES6 一共有 5 种方法可以遍历对象的属性：</li></ul> <div class="language- extra-class"><pre class="language-text"><code>for...in：循环遍历对象自身的和继承的可枚举属性（不含 Symbol 属性）
+Object.keys(obj)：返回一个数组，包括对象自身的（不含继承的）所有可枚举属性（不含 Symbol 属性）的键名
+Object.getOwnPropertyNames(obj)：回一个数组，包含对象自身的所有属性（不含 Symbol 属性，但是包括不可枚举属性）的键名
+Object.getOwnPropertySymbols(obj)：返回一个数组，包含对象自身的所有 Symbol 属性的键名
+Reflect.ownKeys(obj)：返回一个数组，包含对象自身的（不含继承的）所有键名，不管键名是 Symbol 或字符串，也不管是否可枚举
+</code></pre></div><ul><li>上述遍历，都遵守同样的属性遍历的次序规则：
+<ul><li>首先遍历所有数值键，按照数值升序排列</li> <li>其次遍历所有字符串键，按照加入时间升序排列</li> <li>最后遍历所有 Symbol 键，按照加入时间升序排</li></ul></li></ul> <ol start="6"><li>对象新增的方法</li></ol> <div class="language- extra-class"><pre class="language-text"><code>1、Object.is()：严格判断两个值是否相等，与严格比较运算符（===）的行为基本一致，不同之处只有两个：一是+0不等于-0，二是NaN等于自身
+
+2、Object.assign()：
+
+Object.assign()方法用于对象的合并，将源对象source的所有可枚举属性，复制到目标对象target
+Object.assign()方法的第一个参数是目标对象，后面的参数都是源对象
+注意：Object.assign()方法是浅拷贝，遇到同名属性会进行替换
+3、Object.getOwnPropertyDescriptors()：返回指定对象所有自身属性（非继承属性）的描述对象
+
+4、Object.setPrototypeOf()：用来设置一个对象的原型对象
+
+5、Object.getPrototypeOf()：用于读取一个对象的原型对象
+
+6、Object.keys()：返回自身的（不含继承的）所有可遍历（enumerable）属性的键名的数组
+
+7、Object.values()：返回自身的（不含继承的）所有可遍历（enumerable）属性的键对应值的数组
+
+8、Object.entries()：返回一个对象自身的（不含继承的）所有可遍历（enumerable）属性的键值对的数组
+
+9、Object.fromEntries()：用于将一个键值对数组转为对象
+</code></pre></div><h4 id="四、函数新增拓展"><a href="#四、函数新增拓展" class="header-anchor">#</a> 四、函数新增拓展</h4> <ol><li>参数：es6允许函数的参数设置默认值，可以与解构赋值的默认值结合起来使用，当没有提供参数时避免报错；</li> <li>属性
+<ul><li>length
+<ul><li>length将返回没有指定默认值的参数个数；</li> <li>rest 参数也不会计入length属性；</li></ul></li> <li>name： 返回该函数的函数名
+<ul><li>将一个具名函数赋值给一个变量，则name属性都返回这个具名函数原本的名字；</li> <li>Function构造函数返回的函数实例，name属性的值为anonymous；</li> <li>bind返回的函数，name属性值会加上bound前缀；</li></ul></li></ul></li> <li>作用域：一旦设置了参数的默认值，函数进行声明初始化时，参数会形成一个单独的作用域；等到初始化结束，这个作用域就会消失。这种语法行为，在不设置参数默认值时，是不会出现的；</li> <li>严格模式：只要使用了默认值、解构赋值、或者扩展运算符，函数内部都不能显示的设定为严格模式，否则会报错；</li> <li>箭头函数；</li></ol> <h4 id="五、set-和-map"><a href="#五、set-和-map" class="header-anchor">#</a> 五、Set 和 Map</h4> <p>Set是一种叫做集合的数据结构，Map是一种叫做字典的数据结构。</p> <blockquote><p>集合：是由一堆无序的、相关联的，且不重复的内存结构（数学中称为元素）组成的组合。</p> <p>字典：是一些元素的集合。每个元素都有一个称作key的域，不同元素的key各不相同。</p></blockquote> <p>区别：</p> <ul><li>共同点：集合和字典都是可以存储不重复的值</li> <li>不同点：集合以[值, 值]的形式存储，字典以[key, 值]的形式存储</li></ul> <h5 id="set"><a href="#set" class="header-anchor">#</a> Set：</h5> <p>es6新增的数据结构，类似于数组，值唯一，无重复，我们一般称为集合。Set本身是一个构造函数，用于生成Set数据结构</p> <div class="language- extra-class"><pre class="language-text"><code>const s = new Set()
+
+[1,1,1,2,2,2,3,3,4,5,6,3,4,2,1].forEach(x =&gt; s.add(x))
+
+console.log(s) // Set(6) { 1, 2, 3, 4, 5, 6 }
+
+for(let item of s){
+    console.log(item)
+}
+// 1 2 3 4 5 6
+</code></pre></div><p>以上代码使用add()向Set结构加入成员，表明Set结构不会添加重复的值</p> <p>去除字符串中的重复字符</p> <div class="language- extra-class"><pre class="language-text"><code>[...new Set('aabbccabc')].join('') // &quot;abc&quot;
+</code></pre></div><p>属性：</p> <ul><li>Set.prototype.constructor: 构造函数，默认就是Set函数</li> <li>Set.prototype.size: Set函数的成员总数</li></ul> <p>操作方法：</p> <ul><li>add(value) 返回Set结构本身</li> <li>delete(value) 返回一个Boolean，表示是否删除成功</li> <li>has(value) 返回一个Boolean，表示是否包含</li> <li>clear() 清除所有成员，没有返回</li></ul> <p>遍历方法：</p> <ul><li>keys() 返回键名的遍历器</li> <li>values() 返回键值的遍历器</li> <li>entries() 返回键值对的遍历器</li> <li>forEach() 使用回调函数遍历每个成员</li></ul> <div class="language- extra-class"><pre class="language-text"><code>let set = new Set(['React', 'Vue', 'Angular'])
+
+for(let item of set.keys()){
+    console.log(item) // React Vue Angular
+}
+
+for(let item of set.values()){
+    console.log(item) // React Vue Angular
+}
+
+for(let item of set.entries()){
+    console.log(item)
+}
+// [ 'React', 'React' ]
+// [ 'Vue', 'Vue' ]
+// [ 'Angular', 'Angular' ]
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>let set = new Set([1, 4, 9]);
+set.forEach((key, value) =&gt; console.log(key+':'+value))
+// 1:1
+// 4:4
+// 9:9
+</code></pre></div><h5 id="map"><a href="#map" class="header-anchor">#</a> Map</h5> <p>Map类型是键值对的有序列表，而键和值都可以是任意类型，Map本身是一个构造函数，用来生成 Map 数据结构</p> <h4 id="六、promise"><a href="#六、promise" class="header-anchor">#</a> 六、Promise</h4> <ol><li></li></ol> <blockquote></blockquote> <ul><li><ul><li></li></ul> <blockquote></blockquote></li></ul> <ol start="2"><li></li></ol> <h4 id="七、generator"><a href="#七、generator" class="header-anchor">#</a> 七、Generator</h4> <ol><li></li></ol> <blockquote></blockquote> <ul><li><ul><li></li></ul> <blockquote></blockquote></li></ul> <ol start="2"><li></li></ol> <h4 id="八、proxy"><a href="#八、proxy" class="header-anchor">#</a> 八、Proxy</h4> <ol><li></li></ol> <blockquote></blockquote> <ul><li><ul><li></li></ul> <blockquote></blockquote></li></ul> <ol start="2"><li></li></ol> <h4 id="九、module"><a href="#九、module" class="header-anchor">#</a> 九、Module</h4> <ol><li></li></ol> <blockquote></blockquote> <ul><li><ul><li></li></ul> <blockquote></blockquote></li></ul> <ol start="2"><li></li></ol> <h4 id="十、decorator"><a href="#十、decorator" class="header-anchor">#</a> 十、Decorator</h4> <ol><li></li></ol> <blockquote></blockquote> <ul><li><ul><li></li></ul> <blockquote></blockquote></li></ul> <ol start="2"><li></li></ol> <div class="gitalk-container"><div id="gitalk-container"></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/src/前端/HTTP/https.html" class="prev">
+        https
+      </a></span> <span class="next"><a href="/blog/src/前端/JS/ES6技巧/normalize().html">
+        normalize()
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.981a4f72.js" defer></script><script src="/blog/assets/js/2.4ccd4f94.js" defer></script><script src="/blog/assets/js/16.8b42c130.js" defer></script><script src="/blog/assets/js/11.c4ba9e87.js" defer></script>
+  </body>
+</html>
