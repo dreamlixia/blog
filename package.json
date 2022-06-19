@@ -1,0 +1,28 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "jinglixia",
+  "main": "layouts/Layout.vue",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vuepress dev docs",
+    "build": "node ./builds/addComponents.js && vuepress build docs && node ./builds/delComponents.js",
+    "deploy-gh": "GH=1 yarn build && bash scripts/deploy-gh.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.9.7",
+    "vuepress-plugin-cursor-effects": "^1.1.4",
+    "vuepress-plugin-meting": "^0.3.2",
+    "vuepress-plugin-serve": "^2.0.4"
+  },
+  "dependencies": {
+    "@vue/composition-api": "^1.0.0-beta.20",
+    "@vuepress-reco/vuepress-plugin-bgm-player": "^1.1.4",
+    "directory-tree": "^2.2.7",
+    "gitalk": "^1.7.2",
+    "js-md5": "^0.7.3"
+  }
+}
