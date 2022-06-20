@@ -14,8 +14,8 @@ module.exports = {
             // { text: 'Home', link: '/' },
             { text: '前端', link: '/src/前端/基础知识/DNS/' },
             { text: '算法题', link: '/src/算法题/JS/' },
-            { text: '操作手册', link: '/src/操作手册/开发运行此项目/' },
-            { text: '关于我', link: "/src/关于我/It's me" }
+            { text: '操作手册', link: '/src/操作手册/开发运行此项目/' }
+            // { text: '关于我', link: "/src/关于我/It's me" }
         ],
         displayAllHeaders: true //显示所有页面的标题链接
     },
