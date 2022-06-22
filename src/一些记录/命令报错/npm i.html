@@ -1,0 +1,13 @@
+```
+npm ERR! network This is a problem related to network connectivity.
+npm ERR! network In most cases you are behind a proxy or have bad network settings.
+npm ERR! network
+npm ERR! network If you are behind a proxy, please make sure that the
+npm ERR! network 'proxy' config is set properly.  See: 'npm help config'
+```
+
+#### 原因：代理问题
+#### 解决：
+>一：切换镜像源  npm config set registry http://registry.npmjs.org/
+
+>二：删除本机代理：npm config delete proxy 或者 npm config rm proxy

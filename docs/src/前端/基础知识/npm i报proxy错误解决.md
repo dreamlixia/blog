@@ -8,7 +8,7 @@
 -->
 
 
-在npm i的时候报proxy错的解决办法：
+### 在npm i的时候报proxy错的解决办法：
 ---
 
 在npm install安装依赖的时候，出现如下报错：

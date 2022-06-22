@@ -18,7 +18,7 @@ View和Model应用了观察者模式，当Model层发生改变的时候他会通
 这种模式实现了 Model和View的数据自动同步，因此开发者只需要专注于数据的维护操作即可，而不需要自己操作DOM。
 
 <div style="text-align:center">
-    <img width="100%" src="../../../../docs/images/MVVM.jpg" alt="">
+    <img width="100%" src="./../../../images/MVVM.jpg" alt="">
 </div> 
 
 3. MVP（Model View Presenter）
