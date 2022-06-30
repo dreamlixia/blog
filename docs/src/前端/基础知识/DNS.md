@@ -1,10 +1,19 @@
+<!--
+ * @Author: dreamlixia 1763112943@qq.com
+ * @Date: 2022-06-21 17:46:45
+ * @LastEditors: dreamlixia 1763112943@qq.com
+ * @LastEditTime: 2022-07-01 00:28:38
+ * @FilePath: /MyBlog/blog/docs/src/前端/基础知识/DNS.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 ### DNS-prefetch: 
----
 
-#### DNS
+1.DNS
+---
 Domain Name Systerm, 域名系统，作为域名和IP地址相互映射的一个分布式数据库。
 
-#### DNS-Prefetching
+2.DNS-Prefetching
+---
 根据浏览器自定义规则，提前解析可能用到的域名，加快忘网站的访问速度。即提前解析域名，避免延迟。
 
 #### 使用方式
@@ -15,7 +24,8 @@ Domain Name Systerm, 域名系统，作为域名和IP地址相互映射的一个
 ```
 
 #### 扩展
-
+3.数据库
+---
 1. 数据库的类型：
 - 关系数据库，有【MySQL、MariaDB】；
 - 非关系型数据库，【Cassandra、MongoDB】；
@@ -32,7 +42,9 @@ Domain Name Systerm, 域名系统，作为域名和IP地址相互映射的一个
 * TCP传输阶段优化
 > 这个前端方面好像能做的有限, 我们都知道 http协议 是基于 tcp的;
 > 升级http协议版本可以考虑下, 比如把 http/1.0 -> http/1.1 -> http/2;
-#### http2 的优势:
+
+4.http2 的优势
+---
 1. 多路复用: 同一个tcp连接传输多个资源
 - 这样可以突破统一域名下只允许有限个tcp同时连接
 - 这样http1.1所做的减少请求数优化就没有太大必要了
