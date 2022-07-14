@@ -287,6 +287,56 @@ var list = [
 // VM301525:23 (16) [1, 5, 2, 9, 6, 3, 13, 10, 7, 4, 14, 11, 8, 15, 12, 16]
 ```
 
+#### 二维数组扁平化
+```
+/**
+ * @param {number[][]} nums
+ * @return {number[]}
+ */
+ var findDiagonalOrder = function (nums) {
+    if (nums.length === 0) return [];
+    let arrays = [], result = [];
+      // 根据下标和 聚类
+    for (let i = 0; i < nums.length; i++) {
+      let rows = nums[i];
+      for (let j = 0; j < rows.length; j++) {
+        if (!arrays[i + j]) arrays[i + j] = [];
+        arrays[i + j].push(nums[i][j]);
+      }
+    } 
+    // 二维数组扁平化
+    for (const rows of arrays) {
+      result.push(...rows.reverse()); //注意这里每个子数组都是倒序的，需要反转
+    }
+    return result;
+  };
+
+//             [[1,2,3],                                 1
+//              [4,5,6],    变成树                 4             2
+//              [7,8,9]]                     7         5      null 3
+//                                      null    8    null 6
+//                                            null 9
+var findDiagonalOrder = function(nums) {
+    if(!nums||nums[0].length===0)return []
+    let m=nums.length,queue=[],ans=[]
+    //队列中存放的是个数组[元素值，行号，列号]，之所以这样是因为我们没有必要真的去构建一棵树
+    //对于[a,i,j],他的左孩子就是[b,i+1,j],右孩子就是[c,i,j+1]
+    queue.push([nums[0][0],0,0])
+    while (queue.length>0){
+        let data=queue.shift() //取出首元素
+        ans.push(data[0]) //记录
+        let i=data[1]+1,j=data[2]+1
+        if(i<m&&data[2]<nums[i].length&&data[2]===0){ //左孩子如果有加入
+            queue.push([nums[i][data[2]],i,data[2]])
+        }
+        if(data[1]<m&&j<nums[data[1]].length){ //右孩子如果有加入
+            queue.push([nums[data[1]][j],data[1],j])
+        }
+    }
+    return ans
+};
+```
+
 #### 打印/生成有效括号
 ```
 /** 题目：
