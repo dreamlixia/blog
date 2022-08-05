@@ -16,7 +16,7 @@
     <div style="width: 100%; height: 1px; border-top: 1px solid #dcdcdc; margin-bottom: 30px"></div>
 </div> 
 <span style="float: left;font-size: 20px;display: inline-block;width: 50%;text-align: left;border-right: 1px solid #dedede">付出的越多，得到的就会更多。</span>
-<span style="font-size: 20px; display: inline-block; width: 100px; text-align: left; float: left; padding: 0 10px">开心……</span>
+<span style="font-size: 20px; display: inline-block; width: 100px; text-align: left; float: left; padding: 0 10px">……</span>
 
 <div style="font-size: 12px;color: rgb(153, 153, 153);text-align: center;position: fixed;bottom: 0;width: 100%;margin: 10px 0">lynsey's blog Copyright © 2022 Website author. All Rights Reserved.</div>
 
