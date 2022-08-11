@@ -18,6 +18,7 @@ module.exports = {
             // { text: '关于我', link: "/src/关于我/主页/" }
         ],
         displayAllHeaders: true, //显示所有页面的标题链接
+        lastUpdated: '上次更新时间'
     },
     search: true,
     searchMaxSuggestions: 10,
