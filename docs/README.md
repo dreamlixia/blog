@@ -11,7 +11,7 @@
 [//]:src="./images/title.jpeg"
 
 <div style="text-align:center">
-    <img width="50%" style="display: block; min-height: 300px" src="https://github.com/dreamlixia/blog/raw/master/images/title.jpeg" alt="一张猫猫图片" />
+    <img width="50%" style="min-height: 300px" src="https://github.com/dreamlixia/blog/raw/master/images/title.jpeg" alt="一张猫猫图片" />
     <div style="font-size: 20px; margin-top: 30px!important; margin-bottom: 30px">欢迎来到我的博客空间</div>
     <div style="width: 100%; height: 1px; border-top: 1px solid #dcdcdc; margin-bottom: 30px"></div>
 </div> 
