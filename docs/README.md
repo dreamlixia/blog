@@ -11,14 +11,14 @@
 [//]:src="./images/title.jpeg"
 
 <div style="text-align:center">
-    <img width="50%" src="https://github.com/dreamlixia/blog/raw/master/images/title.jpeg" alt="一张猫猫图片" />
+    <img width="50%" style="display: block; min-height: 300px" src="https://github.com/dreamlixia/blog/raw/master/images/title.jpeg" alt="一张猫猫图片" />
     <div style="font-size: 20px; margin-top: 30px!important; margin-bottom: 30px">欢迎来到我的博客空间</div>
     <div style="width: 100%; height: 1px; border-top: 1px solid #dcdcdc; margin-bottom: 30px"></div>
 </div> 
 <span style="float: left;font-size: 20px;display: inline-block;width: 50%;text-align: left;border-right: 1px solid #dedede">付出的越多，得到的就会更多。</span>
-<span style="font-size: 20px; display: inline-block; width: 100px; text-align: left; float: left; padding: 0 10px">……</span>
+<span style="font-size: 20px; display: inline-block; width: 46%; text-align: left; float: left; padding: 0 10px">Don't peek at my blog……</span>
 
-<div style="font-size: 12px;color: rgb(153, 153, 153);text-align: center;position: fixed;bottom: 0;width: 100%;margin: 10px 0">lynsey's blog Copyright © 2022 Website author. All Rights Reserved.</div>
+<div style="font-size: 12px;color: rgb(153, 153, 153);text-align: center;position: fixed;left: 0;bottom: 0;width: 100%;margin: 10px 0">lynsey's blog Copyright © 2022 Website author. All Rights Reserved.</div>
 
 
 <!-- ---
