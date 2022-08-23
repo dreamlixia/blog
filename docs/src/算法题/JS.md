@@ -1,6 +1,5 @@
-#### 判断回文数/判断字符串是否对称
+判断回文数/判断字符串是否对称
 ---
-
 ```
 /**
 * 判断回文数:
@@ -37,10 +36,8 @@ var isPalindrome = function(x) {
 var result = isPalindrome(1021)
 // true
 ```
-
-#### 两数之和
+两数之和
 ---
-
 ```
 /**
 输入：nums = [2,7,11,15], target = 9
@@ -70,10 +67,8 @@ var result = twoSum(nums, 3)
 console.log(result)
 // [2, 5]
 ```
-
-#### 字符串翻转
+字符串翻转
 ---
-
 ```
 function reverseStr(str) {
     // 字符串转化为数组
@@ -105,10 +100,8 @@ console.log(reverseStr(str))
 
 // 这是一道字符串翻转算法题
 ```
-
-#### js快排
+js快排
 ---
-
 ```
 function sort(arr) {
     // 临界条件
@@ -140,8 +133,7 @@ console.log(sort(arr))
 
 //[3, 4, 5, 6, 9, 10, 12, 23, 44, 50]
 ```
-
-#### 罗马数字转整数
+罗马数字转整数
 ---
 ```
 /**
@@ -193,8 +185,7 @@ s = "MCMXCIV"//"IX"//"IV"//"XII"//"IV"//"III"
 var result = romanToInt(s)
 console.log(result) // 1994
 ```
-
-#### 合并两个有序链表
+合并两个有序链表
 ---
 ```
 /**
@@ -249,10 +240,8 @@ var l1 = [1,2,4]
 var l2 = [1,3,4]
 console.log(mergeTwoLists(l1, l2)) // [1,1,2,3,4,4]
 ```
-
-#### 对角线打印二维数组
+对角线打印二维数组
 ---
-
 ```
 function findDiagonalOrder (nums) {
     if(!nums.length) return []
@@ -287,7 +276,8 @@ var list = [
 // VM301525:23 (16) [1, 5, 2, 9, 6, 3, 13, 10, 7, 4, 14, 11, 8, 15, 12, 16]
 ```
 
-#### 二维数组扁平化
+二维数组扁平化
+---
 ```
 /**
  * @param {number[][]} nums
@@ -336,8 +326,8 @@ var findDiagonalOrder = function(nums) {
     return ans
 };
 ```
-
-#### 打印/生成有效括号
+打印/生成有效括号
+---
 ```
 /** 题目：
  * 输入1，输出['()']
@@ -372,7 +362,45 @@ function print(n) {
 }
 ```
 
-#### 判断有效的括号
+判断有效的括号
+---
+```
+/*
+给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
+
+有效字符串需满足：
+
+左括号必须用相同类型的右括号闭合。
+左括号必须以正确的顺序闭合。
+*/
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(str) {
+    
+};
 ```
 
+杨辉三角
+---
+```
+let generate = function(n) {
+    if(!n) return []
+    let list = [[1]]
+    for(let i = 1; i < n; i ++) {
+        list[i] = []
+        for(let j = 0; j < i+1; j ++) {
+            list[i][j] = (list[i-1][j] || 0) + (list[i-1][j-1] || 0)
+        }
+    }
+    return list
+}
+/*
+0: [1]
+1: (2) [1, 1]
+2: (3) [1, 2, 1]
+3: (4) [1, 3, 3, 1]
+4: (5) [1, 4, 6, 4, 1]
+*/
 ```

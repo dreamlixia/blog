@@ -113,4 +113,11 @@ dispatchAction无状态组件更新机制: dispatchAction就是setNumber。
 - 如果两次state不相等，调用scheduleUpdateOnFiber调度渲染当前fiber，<font color="#dd0000">scheduleUpdateOnFiber</font>是react渲染更新的主要函数。
 
 3. **useEffect => mountEffect**
-    - 
+
+每个hooks初始化都会创建一个hook对象，然后将hook的memoizedState保存当前的effect hook信息。
+
+有两个memoizedState不要混淆
+- workInProgress / current 树上的memoizedState保存的是当前函数组件每个hooks形成的链表。
+- 每个hooks上的memoizedState保存的是当前hooks的信息，不同种类的hooks的memoizedState内容不同。
+
+pushEffect
