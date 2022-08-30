@@ -463,9 +463,85 @@ createApp({
     }
 })
 ```
+16.keep-alive中的生命周期有哪些？
+---------------------------------------------------------------------------------
+- activated：在组件第一次渲染时会被调用，之后在每次缓存组件被激活时调用。
+- deactivated：组件被停用（离开路由）时调用。
+
+keep-alive 是Vue提供的内置组件，对组件进行缓存，在组件切换过程中将状态保存在缓存中，防止重复渲染DOM。
+
+17.组件通信
+---------------------------------------------------------------------------------
+1. 父组件通过props向子组件传递数据，子组件通过$emit给父组件传递数据，父组件通过v-on监听并接收参数，兄弟组件用$emit发送，$on接收。
+2. 依赖注入：用于父子/祖孙之间的通信，provide发送数据或方法，inject接收数据或方法。
+3. ref/$refs: 用于父子组件的通信，ref写在子组件上，他的引用指向了子组件的实例，可以通过实例来访问组件的数据和方法：
+
+子组件：
+```
+export default {
+  data () {
+    return {
+      name: 'JavaScript'
+    }
+  },
+  methods: {
+    sayHello () {
+      console.log('hello')
+    }
+  }
+}
+```
+父组件：
+```
+<template>
+  <child ref="child"></component-a>
+</template>
+<script>
+  import child from './child.vue'
+  export default {
+    components: { child },
+    mounted () {
+      console.log(this.$refs.child.name);  // JavaScript
+      this.$refs.child.sayHello();  // hello
+    }
+  }
+</script>
+```
+4. $parent和$children: 
+    - $parent: 可以访问父组件的实例，访问的是上一级父组件的属性和方法；
+    - $children: 访问的是子组件的实例，但是不能保证顺序，并且访问的数据也不是响应式的。
+5. 跨代通信：$attrs和$listeners.
+
+inheritAttrs: 
+- 默认值为true，继承所有父组件除props之外的所有属性；
+- false，只继承父组件的class属性。
+
+$attrs: 继承所有父组件的属性（出prop传递的属性、class、style），一般用在子组件上；
+
+$listeners: 属性是一个对象，里面包含了作用在这个组件上的所有监听器，可以配合v-on="$listeners"将所有事件监听器指向这个组件的某个特定子元素，相当于子组件继承父组件的事件。
+
+18.Vue的性能优化有哪些
+---------------------------------------------------------------------------------
+- 代码模块化、组件化、复用性高、可配置性强、减少重复代码
+- 懒加载模块 
+```
+const getDemo = () => import('./demo.js');
+getDemo().then({ testDemo } => testDemo());
+```
+- 懒加载路由拆分
+```
+const routes = [
+    {path: '/', component: () => import('./dashboard.vue')}, 
+    {path: '/page', component: () => import('./page.vue')}
+]
+```
+- 使用cdn加载外部资源或静态文件上cdn
+- 减少图片使用，使用css3代替图片，优化压缩图片（base64、软件压缩、cdn压缩）
+- v-for进行遍历渲染的时候，每一项都设置唯一的key值
+- 使用的全局变量在销毁时全部置为null，避免内存泄漏
+- 使用keep-alive对组件进行缓存
+- 打包优化，productionSourceMap设置为false，否则最终打包过后会生成一些map文件，如果不关掉，生成环境是可以通过map去查看源码，并且可以开启gzip压缩，使打包过后体积变小
 
 ---------------------------------------------------------------------------------
-
 ---------------------------------------------------------------------------------
-
 ---------------------------------------------------------------------------------
