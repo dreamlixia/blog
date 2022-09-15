@@ -13,3 +13,5 @@
 - commitId不同
     - 使用git fetch更新代码，本地master的commitId不变，还是等于1
     - 使用git pull更新代码，本地master的commitId会改变，会变成2
+
+#### 3. git修改最后一次提交注释：git commit --amend
