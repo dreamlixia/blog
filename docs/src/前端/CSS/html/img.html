@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+        }
+
+        .container img {
+            position: absolute;
+            width: 100%;
+            height: 500px;
+            border: 1px solid #666;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        .pre {
+            opacity: 1;
+            filter: blur(10px);
+            transition: filter 1s ease-in-out;
+        }
+
+        .pre.loaded {
+            filter: blur(0);
+        }
+
+        .next {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .next.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img class="pre" src="./../images/知行.jpg" alt="">
+        <img class="next" real-src="./../images/组件划分图.png" alt="">
+    </div>
+</body>
+
+<script>
+    // const img = new Image()
+    // img.src = 'yasuo.png'
+    // 模拟 img.onload
+    setTimeout(() => {
+        const pre = document.querySelector('.pre')
+        const next = document.querySelector('.next')
+        next.src = './../images/组件划分图.png'
+        console.log('pre.classList =', pre.classList)
+        pre.classList.add('loaded')
+        next.classList.add('loaded')
+        next.addEventListener('transitionend', function animationend() {
+            pre.classList.add('hidden')
+            next.removeEventListener('transitionend', animationend)
+        })
+    }, 2000)
+</script>
+
+</html>
