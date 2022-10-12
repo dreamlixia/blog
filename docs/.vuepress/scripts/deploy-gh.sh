@@ -26,3 +26,7 @@ git commit -m 'deploy'
 git push -f git@github.com:dreamlixia/blog.git master:gh-pages
 
 cd -
+
+git add .
+git commit -m 'build'
+git push
