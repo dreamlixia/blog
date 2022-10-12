@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vuepress dev docs",
     "build": "node ./builds/addComponents.js && vuepress build docs && node ./builds/delComponents.js",
-    "deploy-gh": "GH=1 yarn build && bash scripts/deploy-gh.sh"
+    "deploy-gh": "GH=1 yarn build && bash ./docs/.vuepress/scripts/deploy-gh.sh"
   },
   "keywords": [],
   "author": "",
