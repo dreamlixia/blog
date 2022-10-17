@@ -81,3 +81,72 @@ bfn.apply(objApply);
 
 手写
 ---
+### 模拟实现 call
+```
+Function.prototype.myCall = function(context = window, ...args) {
+    if(this === Function.prototype) {
+        return undefined; // 防止直接调用
+    }
+    context = context || window;
+    const fn = Symbol();
+    context[fn] = this;
+    const result = context[fn](...args);
+    delete context[fn];
+    return result;
+}
+```
+
+### 模拟实现 apply
+apply 和 call 类似，参数为数组
+```
+Function.prototype.myApply = function(context = window, args) {
+    if(this === Function.prototype) {
+        return undefined;
+    }
+    // context = context || window;
+    const fn = Symbol();
+    context[fn] = this;
+    let result;
+    if(Array.isArray(args)) {
+        result = context[fn](...args);
+    } else {
+        result = context[fn]();
+    }
+    delete context[fn];
+    return result;
+}
+```
+
+### 模拟实现 bind
+1. 处理参数，返回一个闭包
+2. 判断是否为构造函数调用，如果是则使用new调用当前函数
+3. 如果不是，使用apply，将context和处理好的参数传入
+```
+    Function.prototype.myBind = function (context,...args1) {
+      if (this === Function.prototype) {
+        throw new TypeError('Error')
+      }
+      const _this = this
+      return function F(...args2) {
+        // 判断是否用于构造函数
+        if (this instanceof F) {
+          return new _this(...args1, ...args2)
+        }
+        return _this.apply(context, args1.concat(args2))
+      }
+    }
+```
+```
+Function.prototype.mybind = function () {
+  if (typeof this !== 'function') throw 'Bind must be called on a function'
+  let _this = this, //这里的this是原函数
+    context = arguments[0],//获取要this指向的对象
+    slice = Array.prototype.slice,
+    args = slice.call(arguments, 1);//获取bind函数除this指向对象外的所有参数
+  //返回函数    
+  return function () {
+    args = args.concat(slice.call(arguments))//合并bind的入参和执行时的入参
+    return _this.apply(context, args)
+  }
+}
+```
