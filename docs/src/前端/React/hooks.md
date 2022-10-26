@@ -120,4 +120,46 @@ dispatchAction无状态组件更新机制: dispatchAction就是setNumber。
 - workInProgress / current 树上的memoizedState保存的是当前函数组件每个hooks形成的链表。
 - 每个hooks上的memoizedState保存的是当前hooks的信息，不同种类的hooks的memoizedState内容不同。
 
-pushEffect
+pushEffect 创建 effect 对象，挂载 updateQueue
+
+首先创建一个 effect ，判断组件如果第一次渲染，那么创建 componentUpdateQueue ，就是workInProgress的updateQueue。然后将effect放入updateQueue中。
+```
+function pushEffect(tag, create, destroy, deps) {
+  const effect = {
+    tag,
+    create,
+    destroy,
+    deps,
+    next: null,
+  };
+  let componentUpdateQueue = currentlyRenderingFiber.updateQueue
+  if (componentUpdateQueue === null) { // 如果是第一个 useEffect
+    componentUpdateQueue = {  lastEffect: null  }
+    currentlyRenderingFiber.updateQueue = componentUpdateQueue
+    componentUpdateQueue.lastEffect = effect.next = effect;
+  } else {  // 存在多个effect
+    const lastEffect = componentUpdateQueue.lastEffect;
+    if (lastEffect === null) {
+      componentUpdateQueue.lastEffect = effect.next = effect;
+    } else {
+      const firstEffect = lastEffect.next;
+      lastEffect.next = effect;
+      effect.next = firstEffect;
+      componentUpdateQueue.lastEffect = effect;
+    }
+  }
+  return effect;
+}
+```
+
+内容太多，先不写了……😭
+
+**mounted 阶段 hooks 总结**
+
+初始化阶段，react-hooks 做的事情，在一个函数组件第一次渲染执行上下文的过程中，每个 react-hooks 执行，都会产生一个 hook 对象，并形成链表结构，绑定在 workInProgress 的 memoizedState 属性上，然后 react-hooks 上的状态，绑定在当前 hooks 对象的 memoizedState 属性上。对于 effect 副作用钩子，会绑定在 workInProgress.updateQueue 上，等到 commit 阶段，dom 树构建完成，在执行每个 effect 副作用钩子。
+
+Hooks 更新阶段
+---
+对于更新阶段，说明上一次 workInProgress 树已经赋值给了 current 树。存放hooks信息的memoizedState，此时已经存在current树上，react对于hooks的处理逻辑和fiber树逻辑类似。
+
+对于一次函数组件更新，当再次执行hooks函数的时候，比如 useState(0) ，首先要从current的hooks中找到与当前workInProgressHook，对应的currentHooks，然后复制一份currentHooks给workInProgressHook,接下来hooks函数执行的时候,把最新的状态更新到workInProgressHook，保证hooks状态不丢失。
