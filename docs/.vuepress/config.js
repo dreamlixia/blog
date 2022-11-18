@@ -13,6 +13,7 @@ module.exports = {
         nav: [
             // { text: 'Home', link: '/' },
             { text: '前端', link: '/src/前端/基础知识/DNS/' },
+            { text: '手写题', link: '/src/手写题/' },
             { text: '算法题', link: '/src/算法题/JS/' },
             { text: '操作手册', link: '/src/操作手册/开发运行此项目/' },
             // { text: '关于我', link: "/src/关于我/主页/" }
