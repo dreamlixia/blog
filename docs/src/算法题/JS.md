@@ -404,3 +404,144 @@ let generate = function(n) {
 4: (5) [1, 4, 6, 4, 1]
 */
 ```
+翻转字符串
+---
+编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 s 的形式给出。
+
+不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。
+
+```
+输入：s = ["h","e","l","l","o"]
+输出：["o","l","l","e","h"]
+
+var reverseList = function(s) {
+    let n = s.length;
+    for(var left = 0, right = n - 1; left < right; ++ left, -- right){
+        [s[left], s[right]] = [s[right], s[left]]
+    }
+}
+```
+
+链表反转2(反转中间区域)
+---
+给你单链表的头指针 head 和两个整数 left 和 right ，其中 left <= right 。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。
+
+1. 因为头节点可能发生变化，使用虚拟头节点可以避免复杂的分类讨论； new ListNode(-1)
+const dummyNode = new ListNode(-1);
+dummyNode.next = head;
+let pre = dummyNode;
+2. 从虚拟头节点走left - 1 步，来到 left 的前一个节点，使用 for 循环；
+for(let i = 0;  < left - 1; i ++){
+    pre = pre.next;
+}
+3. 从 pre 再走 right-left+1 步，来到 right 节点，使用 for 循环；
+let rightNode = pre;
+for(let i = 0; i < right - left + 1; i ++){
+    rightNode = rightNode.next;
+}
+4. 截取链表；leftNode；
+let leftNode = pre.next;
+let curr = rightNode.next;
+5. 切断链接（置为null）；
+pre.next = null;
+rightNode.next = null;
+6. 反转中间区域，同反转链表1题解；转leftNode；
+var reverseList = function(head) {
+    let prev = null;
+    let cur = head;
+    while(cur){
+        const next = cur.next;
+        cur.next = prev;
+        prev = cur;
+        cur = next;
+    }
+    return prev;
+}
+7. 接回到原来的链表中
+pre.next = rightNode;
+leftNode.next = curr;
+return dummyNode.next;
+```
+var reverseBetween = function(head, left, right) {
+    // 虚拟头节点
+    const dummyNode = new ListNode(-1);
+    dummyNode.next = head;
+    
+    let pre = dummyNode;
+    // 从pre走到left-1节点；
+    for(let i = 0; i < left - 1; i ++){
+        pre = pre.next;
+    }
+    // 从pre走right-left+1步到right节点
+    let rightNode = pre;
+    for(let i = 0; i < right - left + 1; i ++){
+        rightNode = rightNode.next;
+    }
+    // 截取子区间
+    let leftNode = pre.next;
+    let curr = rightNode.next;
+    // 切断
+    pre.next = null;
+    rightNode.next = null;
+    // 反转子区间
+    reverseList(leftNode);
+    // 拼接
+    pre.next = rightNode;
+    leftNode.next = curr;
+    return dummyNode.next;
+};
+const reverseList = function(head) {
+    let prev = null;
+    let cur = head;
+    while(cur){
+        const next = cur.next;
+        cur.next = prev;
+        prev = cur;
+        cur = next;
+    }
+    return prev;
+}
+```
+一堆数组的动态和（动态规划）
+---
+输入： [1,2,3,4,5]
+输出： [1,3,6,10,15]
+
+输入：[1,1,1,1,1]
+输出：[1,2,3,4,5]
+```
+var runningSum = function(nums){
+    let n = nums.length;
+    for(let i = 1; i < n; i ++){
+        nums[i] += nums[i-1]
+    }
+    return nums;
+}
+```
+
+滑动窗口（动态规划）
+---
+给定一个整数数据流和一个窗口大小，根据该滑动窗口的大小，计算滑动窗口里所有数字的平均值。
+
+实现 MovingAverage 类：
+
+MovingAverage(int size) 用窗口大小 size 初始化对象。
+double next(int val) 成员函数 next 每次调用的时候都会往滑动窗口增加一个整数，请计算并返回数据流中最后 size 个值的移动平均值，即滑动窗口里所有数字的平均值。
+
+参考资料： https://zhuanlan.zhihu.com/p/419498264
+```
+var MovingAverage = function(size) {
+    this.nums = []; // 队列初始化
+    this.capacity = size; // 窗口长度
+    this.sum = 0; // 总和
+}
+
+MovingAverage.prototype.next = function(val) {
+    this.nums.push(val);
+    this.sum += val;
+    if(this.nums.length > this.capacity) {
+        this.sum -= this.nums.shift();
+    }
+    return this.sum / this.nums.length;
+}
+```
