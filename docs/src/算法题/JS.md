@@ -100,7 +100,7 @@ console.log(reverseStr(str))
 
 // 这是一道字符串翻转算法题
 ```
-js快排
+js快速排序
 ---
 ```
 function sort(arr) {
@@ -543,5 +543,218 @@ MovingAverage.prototype.next = function(val) {
         this.sum -= this.nums.shift();
     }
     return this.sum / this.nums.length;
+}
+```
+
+剑指 Offer 06. 从尾到头打印链表
+---
+输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
+
+示例 1：
+
+输入：head = [1,3,2]
+输出：[2,3,1]
+<div style='display: none'>
+```
+// 第一种
+var reversePrint = function(head) {
+    let nodes = []
+    while(head != null) {
+        nodes.push(head.val)
+        head = head.next
+    }
+    return nodes.reverse()
+}
+// 第二种
+var reversePrint = function(head) {
+    let nodes = []
+    while(head != null){
+        nodes.push(head.val)
+        head = head.next
+    }
+    let result = []
+    let temp = nodes.pop()
+    while(temp != null){
+        result.push(temp)
+        temp = nodes.pop()
+    }
+    return result;
+}
+```
+</div>
+
+```
+var reversePrint = function(head) {
+    // 定义一个装节点的数组遍历出来
+    let nodes = [];
+    while(head != null){
+        // push 进去，head后移一位
+        nodes.push(head.val);
+        head = head.next;
+    }
+    // 第一种
+        // 后删，每删除一个就push进结果数组
+        let result = []
+        let temp = nodes.pop()
+        while(temp != null){
+            result.push(temp)
+            temp = nodes.pop()
+        }
+        return result
+    // 第二种
+        // 直接reverse
+        // return nodes.reverse()
+};
+```
+
+剑指 Offer 18. 删除链表的节点
+---
+给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。
+
+返回删除后的链表的头节点。
+
+注意：此题对比原题有改动
+
+示例 1:
+
+输入: head = [4,5,1,9], val = 5
+输出: [4,1,9]
+解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -> 1 -> 9.
+示例 2:
+
+输入: head = [4,5,1,9], val = 1
+输出: [4,5,9]
+解释: 给定你链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -> 5 -> 9.
+```
+var deleteNode = function(head, val) {
+    if(head == null) return null
+    if(head.val == val) return head.next
+    let temp = head
+    // 遍历没有找到时
+    while(temp.next && temp.next.val !== val){
+        // 用next右移继续找
+        temp = temp.next
+    }
+    // 如果找到目标值
+    if(temp.next.val === val){
+        // 直接越过这个值去下一个next
+        temp.next = temp.next.next
+    }
+    // 最终返回头节点
+    return head
+}
+```
+剑指offer 78. 合并排序链表（困难）
+---
+```
+/**
+ * 输入：lists = [[1,4,5],[1,3,4],[2,6]]
+    输出：[1,1,2,3,4,4,5,6]
+    解释：链表数组如下：
+    [
+    1->4->5,
+    1->3->4,
+    2->6
+    ]
+    将它们合并到一个有序链表中得到。
+    1->1->2->3->4->4->5->6
+
+    输入：lists = []
+    输出：[]
+
+    输入：lists = [[]]
+    输出：[]
+ */
+ ```
+```
+var mergeKLists = function(lists) {
+    if(lists == null) return null
+    let n = lists.length
+    if(n == 0) return null
+    if(n == 1) return lists[0]
+    for(var i = 1; i < n; i ++) {
+        lists[i] = mergeTwoLists(lists[i-1], lists[i])
+    }
+    return lists[n-1]
+}
+// 先合并两个
+var mergeTwoLists = function(l1, l2) {
+    let head = new ListNode()
+    let cur =  head
+    while(l1 && l2) {
+        if(l1.val < l2.val) {
+            cur.next = l1
+            l1 = l1.next
+        }else{
+            cur.next = l2
+            l2 = l2.next
+        }
+        // 指针右移
+        cur = cur.next
+    }
+    cur.next = l1 == null ? l2 : l1
+    return head.next
+}
+```
+
+215.数组中的第K个最大元素
+---
+给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
+
+请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+
+你必须设计并实现时间复杂度为 O(n) 的算法解决此问题。
+
+示例 1:
+
+输入: [3,2,1,5,6,4], k = 2
+输出: 5
+
+示例 2:
+
+输入: [3,2,3,1,2,4,5,5,6], k = 4
+输出: 4
+```
+var findKthLargest = function(nums, k) {
+    // 先排序，下标为n-k的值即为目标，需考虑负数情况
+    nums.sort((a,b)=>a-b)
+    let n = nums.length
+    for(var i = n-1; i >= 0; --i) {
+        if(n-k == i) {
+            return nums[i]
+        }
+    }
+}
+```
+回文链表
+---
+思路：
+- 遍历链表
+- 定义init数组，push进去
+- 双向遍历数组， 比较值
+- 不相等返回false，否则true
+
+```
+var isPalindrome = function(head) {
+    /**
+     * 定义init数组
+     * 遍历链表
+     */
+    let list = []
+    while(head != null) {
+        list.push(head.val)
+        head = head.next
+    }
+    /**
+     * 双向遍历数组
+     * 比较值
+     */
+    let n = list.length
+    for(var i=0,j=n-1; i<j; i++,j--) {
+        if(list[i] !== list[j]) {
+            return false
+        }
+    }
+    return true
 }
 ```
