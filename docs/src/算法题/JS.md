@@ -823,3 +823,104 @@ var sortList = function(head) {
     return toSortList(head, null);
 };
 ```
+判断链表中是否有环
+---
+快慢指针
+
+快指针指向null，说明列表中没有环
+
+快指针每次走两步，慢指针走一步，在某个时刻，如果存在环，快指针一定会在某一步追上慢指针实现套圈，即两个指针指向同一节点，返回true。
+
+```
+var hasCycle = function(head) {
+    let fastHead = head
+    let slowHead = head
+    while(fastHead) {
+        fastHead = fastHead.next
+        slowHead = slowHead.next
+        if(!fastHead) return false
+        fastHead = fastHead.next
+        if(fastHead == slowHead) return true
+    }
+    return false
+}
+```
+返回链表入环的第一个节点，如果无环返回null
+---
+哈希表
+
+如果遇到遍历过的，说明存在环
+
+```
+var detectCycle = function(head) {
+    const visited = new Set()
+    while(head != null) {
+        if(visited.has(head)) {
+            return head
+        }
+        visited.add(head)
+        head = head.next
+    }
+    return null
+}
+```
+
+重排链表
+---
+给定一个单链表 L 的头节点 head ，单链表 L 表示为：
+
+L0 → L1 → … → Ln - 1 → Ln
+
+请将其重新排列后变为：
+
+L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
+
+不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+```
+var reorderList = function(head) {
+    if(head == null) return head
+    let p = head
+    let list = []
+    while(p) {
+        list.push(p)
+        p = p.next
+    }
+    while(list.length > 2) {
+        let l = list.shift()
+        let r = list.pop()
+        r.next = l.next
+        l.next = r
+    }
+    list[list.length-1].next = null
+}
+```
+剑指 Offer 31. 栈的压入、弹出序列
+---
+给两个整数序列，一个表示栈的压入顺序，判断第二个序列是否为栈的弹出顺序
+
+示例 1：
+
+输入：pushed = [1,2,3,4,5], popped = [4,5,3,2,1]
+输出：true
+解释：我们可以按以下顺序执行：
+push(1), push(2), push(3), push(4), pop() -> 4,
+push(5), pop() -> 5, pop() -> 3, pop() -> 2, pop() -> 1
+
+示例 2：
+
+输入：pushed = [1,2,3,4,5], popped = [4,3,5,1,2]
+输出：false
+解释：1 不能在 2 之前弹出。
+```
+var validateStackSequences = function(pushed, popped){
+    let stack = []
+    for(var i=0,j=0; i<pushed.length; i++) {
+        stack.push(pushed[i])
+        while(stack.length && stack[stack.length-1] == popped[j]) {
+            stack.pop()
+            j++
+        }
+    }
+    return stack.length == 0
+}
+```
