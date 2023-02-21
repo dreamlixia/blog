@@ -8,11 +8,13 @@ module.exports = {
     themeConfig: {
         ...config,
         author: 'jinglixia',
-        logo: "https://cdn4.buysellads.net/uu/1/41334/1550855401-cc_light.png",
+        // logo: "https://cdn4.buysellads.net/uu/1/41334/1550855401-cc_light.png",
+        logo: "https://github.com/dreamlixia/blog/raw/master/images/title.jpeg",
         // tags:"/tags",
         nav: [
             // { text: 'Home', link: '/' },
-            { text: '前端', link: '/src/前端/基础知识/DNS/' },
+            { text: '前端', link: '/src/前端/' },
+            // { text: '前端', link: '/src/前端/基础知识/DNS/' },
             { text: '手写题', link: '/src/手写题/' },
             { text: '算法题', link: '/src/算法题/JS/' },
             { text: '操作手册', link: '/src/操作手册/开发运行此项目/' },

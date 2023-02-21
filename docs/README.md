@@ -11,7 +11,8 @@
 [//]:src="./images/title.jpeg"
 
 <div style="text-align:center">
-    <img width="50%" src="https://github.com/dreamlixia/blog/raw/master/images/title.jpeg" alt="一张猫猫图片" />
+    <!-- <img width="50%" src="https://github.com/dreamlixia/blog/raw/master/images/title.jpeg" alt="一张猫猫图片" /> -->
+    <img src="../images/主页头像.jpg" alt="头像" title="这是我的主页头像"/>
     <div style="font-size: 20px; margin-top: 30px!important; margin-bottom: 30px">欢迎来到我的博客空间</div>
     <div style="width: 100%; height: 1px; border-top: 1px solid #dcdcdc; margin-bottom: 30px"></div>
 </div> 
