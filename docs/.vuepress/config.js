@@ -14,6 +14,7 @@ module.exports = {
         nav: [
             // { text: 'Home', link: '/' },
             { text: '前端', link: '/src/前端/' },
+            { text: '面试题', link: '/src/面试题/HTML/' },
             { text: '手写题', link: '/src/手写题/' },
             { text: '算法题', link: '/src/算法题/JS/' },
             { text: '操作手册', link: '/src/操作手册/开发运行此项目/' },

@@ -1,5 +1,5 @@
 ---
-title: A目录
+title: 目录
 ---
 
 新增内容在docs/.vuepress/config.js中进行配置：

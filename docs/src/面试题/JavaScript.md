@@ -1,3 +1,5 @@
+------ JavaScript ------
+---
 异步加载的几种方式
 ---
 1. defer: script被异步加载后并不会立即执行，而是等待文档被解析后执行。
@@ -88,3 +90,19 @@ function throttle(event, time) {
     }
 }
 ```
+
+介绍下Promise和all方法
+---
+Promise是异步编程的一种解决方案。有以下两个特点，对象的状态不受外界影响和一旦状态改变，就不会再变，任何时候都可以得到这个结果，promise对象有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。Promise对象是一个构造函数，用来生成promise实例，接受一个函数作为参数，该函数的两个参数分别是resolve和reject。promise的方法有then、catch、finally、resolve、reject等。
+
+Promise.all()方法可以将多个Promise实例包装成一个新的Promise实例。同时，成功和失败的返回值是不同的，成功时返回一个数组，失败的时候则返回最先被reject失败状态的值。
+
+需要特别注意的是， Promise.all获得的成功结果的数据里面的数据顺序和Promise.all接收到的数组顺序是一致的，即使前面的结果后返回，得到的数组顺序也是在前的。适用场景：前端开发请求数据的过程中，发送多个请求并根据请求顺序获取和使用数据。
+
+promise和async await的区别
+---
+Promise的出现解决了传统callback函数导致的地域回调问题，但他的语法导致了它向纵向发展成了一个回调连，遇到复杂的业务场景，这样的语法显然也是不美观的。而async await代码看起来会简洁些，使异步代码看起来像同步代码，await的本质是可以提供等同于“同步效果”的等待异步返回能力的语法糖，只有这一句执行完，才会执行下一句。
+
+async await与Promise一样，是非阻塞的。
+
+async await是基于Promise实现的，可以说是改良版的Promise，他不能用于普通的回调函数。
