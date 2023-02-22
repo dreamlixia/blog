@@ -57,7 +57,7 @@ let newArr = function(arr) {
 let result = newArr(arr)
 console.log(result)
 ```
-6.对象里的属性求和
+6.数组中对象里的属性求和
 ---
 ```
 var objArr = [
