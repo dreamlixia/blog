@@ -53,12 +53,14 @@ function debounce(event, time) {
 ```
 有时候我们需要立即执行一次函数，再等后面事件触发后等待 n 秒执行，我们给 debounce 函数一个 flag 标示。
 ```
-function debounce(event, time, flag) {
+function debounce(event, time) {
     let timer = null;
+    let flag = true;
     return function(...args) {
         clearTimeout(timer);
         if(flag && !timer) {
             event.apply(this, args);
+            flag = false;
         }
         timer = setTimeout(() => {
             event.apply(this, args);
@@ -71,17 +73,16 @@ function debounce(event, time, flag) {
 ---
 不管事件的触发频率有多高，只在单位时间内执行一次。
 
-时间戳和定时器结合，第一次和最后一次都会触发的版本。
+<span style="text-decoration: underline; color: blue;">时间戳</span>和定时器结合，第一次和最后一次都会触发的版本。
 ```
 function throttle(event, time) {
-    let pre = 0; 
+    let pre = 0; // 记录上次的时间
     let timer = null;
     return function(...args) {
-        if(Date.now() - pre > time) {
+        if(Date.now() - pre > time) { // 当前时间-上次时间 > 等待时间
             clearTimeout(timer);
-            timer = null;
-            pre = Date.now();
-            event.apply(this, args);
+            pre = Date.now(); // 重置上次的时间
+            event.apply(this, args); // 执行函数
         } else if(!timer) {
             timer = setTimeout(() => {
                 event.apply(this, args);

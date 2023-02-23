@@ -40,7 +40,7 @@ console.log(result)
 ```
 4.二维数组转化为一维数组
 ---
-````
+```
 let arr = [[0, 1], [2, 3], [4, 5]]
 let result = arr.reduce((pre, cur) => {
     return pre.concat(cur)
