@@ -114,24 +114,193 @@ function MyPromise(executor) {
 ```
 原生xhr
 ---
+get
 ```
-
+/**
+ * 1. 创建xhr对象
+ * 2. open 请求方式，url
+ * 3. send发送请求
+ * 4. 监听xhr状态
+ */
+var xhr = new XHRHttpRequest()
+xhr.open('GET', url)
+xhr.send()
+xhr.onreadystatechange = function() {
+    if(xhr.readyState == 4 && xhr.status == 200) {
+        console.log(xhr.responseText)
+    }
+}
+```
+post
+```
+/**
+ * 1. 创建xhr对象
+ * 2. open post， url
+ * 3. 定义请求头
+ * 4. send formData
+ * 5， 监听xhr状态
+ */
+var xhrPost = new XMLHttpRequest()
+xhrPost.open('POST', url)
+xhrPost.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+xhrPost.send('a=1&b=2&c=3')
+xhrPost.onreadystatechange = function() {
+    if(xhrPost.readyState == 4 && xhrPost.status == 200) {
+        console.log(xhrPost.responseText)
+    }
+}
 ```
 深浅拷贝
 ---
+**浅拷贝**
+* for...in 遍历原对象的属性 / Object.keys()
 ```
+const obj = { a: { d: 1 }, b: 2, c: 3 }
+function clone(target) {
+    let cloneTarget = {}
+    for(var key in target) { // for(var key of Object.keys(obj))
+        cloneTarget[key] = target[key]
+    }
+    return cloneTarget
+}
+let obj1 = clone(obj)
+obj.a.d = 'a'
+console.log(obj1) // { a: { d: 'a' }, b: 2, c: 3 } 浅拷贝只有一层的对象不变，有子对象会变
+```
+* Object.entries
+```
+const obj = { a: { d: 1 }, b: 2, c: 3 }
+function clone(target) {
+    let cloneTarget = {}
+    for(var [key, value] of Object.entries(obj)){
+        cloneTarget[key] = value
+    }
+    return cloneTarget
+}
+var obj1 = clone(obj)
+obj.a.d = 'd'
+console.log(obj1) // 变了 { a: { d: 'd' }, b: 2, c: 3 }
+```
+* Object.assign / ...
+```
+let obj1 = {
+    a: undefined,
+    b: 1, 
+    c: function() { console.log(1) },
+    d: { x: '2' }
+}
+let obj2 = Object.assign({}, obj1) // 或 { ...obj1 }
+obj1.d.x = '3'
+console.log(obj2)
+```
+* lodash库的_.clone方法
+```
+var _ = require('lodash')
+var obj = {
+    a: 1,
+    b: { f: { g: 1 } },
+    c: [1, 2, 3]
+}
+var obj1 = _.clone(obj)
+console.log(obj.b.f === obj1.b.f) // true
+```
+* 数组的concat / slice
+```
+var c = [2, { age: '12' }]
+var d = c.concat()
+d[1].age = '100'
+console.log(c) // c的值变了 [2, {age: '100'}]
 
+var a = [1, { name: 'name' }]
+var b = a.slice()
+b[1].name = '111'
+console.log(a) // a的值变了 [1, { name: '111' }]
+```
+**深拷贝**
+* JSON.stringify：弊端：忽略value为function, undefind, symbol, 并且在序列化BigInt时会抛出语法错误：TypeError: Do not know how to serialize a BigInt
+```
+var obj = { a: 1, b: 2, c: 3 }
+var obj2 = JSON.stringify(obj)
+obj.a = 'a'
+obj2 = JSON.parse(obj2)
+console.log(obj, obj2) // {a: 'a', b: 2, c: 3} '{"a":1,"b":2,"c":3}'
+```
+* lodash库中的_.cloneDeep方法
+```
+var _ = require('lodash')
+var obj1 = {
+    a: 1,
+    b: { f: { g: 1 } },
+    c: [1, 2, 3]
+}
+var obj2 = _.cloneDeep(obj1)
+console.log(obj1.b.f === obj2.b.f) // true
+```
+* 递归，for...in循环，如果为属性对象则递归
+```
+let obj10 = { a: { d: 'd' }, b: [1, 2], c: undefined }
+function cloneObj(obj) {
+    let clone = {}
+    for(let key in obj) {
+        if(typeof obj[key] == 'object' && obj[key] != null) {
+            clone[key] = cloneObj(obj[key])
+        } else {
+            clone[key] = obj[key]
+        }
+    }
+    return clone
+}
+let res = cloneObj(obj10)
+obj10.a.d = 'ddd'
+console.log(res) // 不变
 ```
 异步循环打印
 ---
+用promise、async、await实现
 ```
+var sleep = function(time, i) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(i)
+        }, time)
+    })
 
+}
+var start = async function() {
+    for(var i = 0; i < 6; i ++) {
+        const result = await sleep(1000, i)
+        console.log('result =', result)
+    }
+}
+start()
+
+// Promise {<pending>}
+// VM44795:13 result = 0
+// VM44795:13 result = 1
+// VM44795:13 result = 2
+// VM44795:13 result = 3
+// VM44795:13 result = 4
+// VM44795:13 result = 5
 ```
 call、apply、bind 
 ---
 [牛客题解](https://www.nowcoder.com/profile/539362727/codeBookDetail?submissionId=118943499)
 ```
-
+function applyThis(f, otarget) {
+    return function() {
+        return f.apply(otarget, arguments)
+    }
+}
+function callThis(f, otarget) {
+    return function() {
+        return f.call(otarget, ...arguments)
+    }
+}
+function bindThis(f, otarget) {
+    return function() {
+        return f.bind(otarget)
+    }
+}
 ```
 快排
 ---
