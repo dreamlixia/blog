@@ -2,7 +2,6 @@
 
 待补充。。。
 
-
 1.Vue基本原理
 ---------------------------------------------------------------------------------
 当一个Vue实例创建时，Vue会遍历Data中的属性，用Object.defineProperty(Vue3.0使用Proxy)将它们转化为getter/setter，并且在内部追踪相关依赖，在属性被访问和修改时通知变化。每个组件实例都有相应的watcher程序实例，它会在组件渲染的过程中把属性记录为依赖，之后当依赖项的setter被调用时，会通知watcher重新计算，从而致使它关联的组件得已更新。
@@ -542,6 +541,83 @@ const routes = [
 - 使用keep-alive对组件进行缓存
 - 打包优化，productionSourceMap设置为false，否则最终打包过后会生成一些map文件，如果不关掉，生成环境是可以通过map去查看源码，并且可以开启gzip压缩，使打包过后体积变小
 
+如何修改element组件库的样式： 样式穿透
 ---------------------------------------------------------------------------------
+组件样式穿透 >>> 或 /deep/ 或 ::deep
+
+css原生样式，可以直接使用 >>>
+
+sass/less可能无法识别，使用 /deep/ 和 ::deep 选择器(都是 >>> 的别名)
+```
+<style scoped>
+     .a {
+        >>> .b {
+            color: red;
+        }
+     }
+</style>
+```
+```
+<style lang='sass' scoped>
+.a {
+    /deep/ .b {
+        color: blue;
+    }
+}
+// 或者
+.a /deep/ .b {
+    color: blue;
+}
+</style>
+
+```
+```
+<style lang='sass' scoped>
+.a {
+    ::deep .b {
+        color: blue;
+    }
+}
+// 或者
+.a ::deep .b {
+    color: blue;
+}
+</style>
+```
+vue3.0的环境下，安装项目时选择了dart-sass。这个不支持/deep/和>>>写法。只能用::deep，选择node-sass不会有这个问题。
+
+建议使用::deep方式，保险并且编译速度更快。
+
+Proxy实现数据响应式 Vue3.0
+---
+```
+let onWatch = (obj, setBind, getLogger) => {
+    let handler = {
+        get(taget, property, receiver) {
+            getLogger(target, property)
+            return Reflect.get(target, property, receiver)
+        },
+        set(target, property, value, receiver) {
+            setBind(value, property)
+            return Reflect.set(target, property, value)
+        }
+    }
+    return new Proxy(obj, handler)
+}
+let obj = { a: 1 }
+let p = onWatch(
+    obj,
+    (v, property) => {
+        console.log(`监听到属性${property}改变为${v}`)
+    },
+    (target, property) => {
+        console.log(`'${property}' = ${target[property]}`)
+    }
+)
+p.a = 2 // 监听到属性a改变
+p.a // 'a' = 2
+```
+当然这是简单版的响应式实现，如果需要实现一个 Vue 中的响应式， 需要在 get 中收集依赖，在 set 派发更新，之所以 Vue3.0 要使用 Proxy 替换原本的 API 原因在于 Proxy 无需一层层递归为每个属 性添加代理，一次即可完成以上操作，性能上更好，并且原本的实现 有一些数据更新不能监听到，但是 Proxy 可以完美监听到任何方式 的数据改变，唯一缺陷就是浏览器的兼容性不好。
+
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------

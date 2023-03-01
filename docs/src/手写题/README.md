@@ -150,6 +150,12 @@ xhrPost.onreadystatechange = function() {
     }
 }
 ```
+使用Promise封装ajax
+---
+<div>
+    <img src='./../../../images/usePromiseToAjax.jpg'/>
+</div>
+
 深浅拷贝
 ---
 **浅拷贝**
@@ -419,4 +425,58 @@ var fib = function(n) {
 ---
 ```
 
+```
+自定义hook
+```
+ import React, { useState, useEffect } from 'react'
+
+ function usePosition() {
+    const [x, setX] = useState(0)
+    const [y, setY] = useState(0)
+
+    const handleMouseMove = (e) => {
+       const { clientX, clientY } = e
+       setX(clientX)
+       setY(clientY)
+    }
+
+    useEffect(() => {
+        document.addEventListener('mousemove', handleMouseMove)
+        return () => {
+            document.removeEventListener('mousemove', handleMouseMove)
+        }
+    })
+
+    return [
+        {x, y}
+    ]
+ }
+
+ function Index () {
+    const [ position ] = usePosition()
+    return (
+        <div>
+            <p>x: {position.x} y: {position.y}</p>
+        </div>
+    )
+ }
+
+ export default Index
+```
+函数柯里化
+---
+把接受多个参数的函数变成接受一个单一参数的函数，返回接受其余参数并且返回结果的新函数的技术。
+```
+function currying(fn, ...args) {
+    if(args.length >= fn.length) {
+        return fn(...args)
+    } else {
+        return (...args2) => currying(fn, ...args, ...args2)
+    }
+}
+function fun(a,b,c) {
+    return a+b+c
+}
+const resFun = currying(fun)
+resFun(1)(2)(3)
 ```

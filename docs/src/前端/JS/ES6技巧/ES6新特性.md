@@ -313,7 +313,7 @@ Map类型是键值对的有序列表，而键和值都可以是任意类型，Ma
     >
 2. 
 
-八、Proxy
+八、Proxy(用来自定义对象中的操作)
 ---
 1.
 > 
@@ -339,3 +339,10 @@ Map类型是键值对的有序列表，而键和值都可以是任意类型，Ma
     - 
     >
 2. 
+
+Reflect是什么
+---
+Reflect也是ES6新增的一个API，表示反射。它是一个对象，提供了很多操作对象的方法，类似于Object中的方法，比如 Reflect.getPrototypeOf 和 Object.getPrototypeOf。
+
+早期操作对象的方法都是定义在Object上，但Object作为构造函数，直接放在它身上并不合适，所以新增Reflect对象来统一操作，并且转换了对象中in、delete这样的操作符
+
