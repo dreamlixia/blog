@@ -384,3 +384,56 @@ escape 和 encodeURI 的作用相同，不过它们对于 unicode 编码为 0xff
 什么是尾调用，使用尾调用有什么好处?
 ---
 尾调用指的是函数的最后一步调用另一个函数。代码执行是基于执行 栈的，所以当在一个函数里调用另一个函数时，会保留当前的执行上 下文，然后再新建另外一个执行上下文加入栈中。使用尾调用的话， 因为已经是函数的最后一步，所以这时可以不必再保留当前的执行上 下文，从而节省了内存，这就是尾调用优化。但是 ES6 的尾调用优 化只在严格模式下开启，正常模式是无效的。
+
+JS判断空对象
+---
+1. JSON.stringify()
+```
+let obj = {}
+console.log(JSON.stringify(obj) === '{}') // true
+```
+2. for in
+```
+let obj = {}
+let result = function(obj) {
+    for(let key in obj) { // 若不为空，可遍历，返回false；为空不进入循环，返回true
+        console.log('key', key)
+        return false
+    }
+    return true
+}
+console.log(result(obj)) // true
+```
+3. Object.keys(): 返回对象属性名组成的数组，如果长度为0，则为空对象（ES6）
+```
+let obj = {}
+console.log(Object.keys(obj).length === 0) // true
+```
+4. Object.getOwnPropertyNames(): 获取对象的属性名，存放到数组中，如果长度为0，则为空对象
+```
+let obj = {}
+console.log(Object.getOwnPropertyNames(obj).length === 0) // true
+```
+5. jQuery中的isEmptyObject(): 原理是利用for in的方式来判断（记得引入jquery）
+```
+console.log($.isEmptyObject(obj)); // true
+```
+代码检查工具 husky eslint prettier lint-staged
+---
+**eslint**：代码规范检查工具，可以对代码进行约束规范。
+- 写法：跟目录创建.eslintrc文件，还可自动修复报错（--fix）。
+
+**prettier**：代码格式化工具（检查和自动修复）代码保存自动格式化。
+- 在commit前让pre-commit执行prettier来检查代码是否合格
+- 写法：根目录新建 .prettierrc 配置文件。
+
+**lint-staged**:  比如 eslint 命令需要指定 src/*.js ，但这样会产生新的问题，如果 src 目录存在着大量的 .js 文件，那么每次执行 eslint 时都会对所有文件检查&修复，很明显除了对性能有影响外，还会影响同事以前写过的代码格式。
+- lint-staged可以只检查&修复我们修改过的文件，能让这些插件只扫描暂存区的文件而不是全盘扫描。
+- 写法：在 package.json 新增 lint-staged 选项
+```
+lint-staged: {"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "eslint --fix"
+]}
+```
+**husky**: 在使用git commit时对代码进行eslint检查，git本身的一些勾子如pre-commit使用起来稍微麻烦，husky容易.
+- npm安装完跟目录会有.husky目录pre-commit配置文件，可自定义命令。

@@ -68,7 +68,7 @@ function throttleTime(event, time) {
     let timer = null
     return function(...args) {
         if(Date.now() - prev > time) {
-            clearTimeout(timer)
+            <!-- ？？？ clearTimeout(timer) -->
             event.apply(this, args)
             prev = Date.now()
         } else if(!timer) {
@@ -479,4 +479,20 @@ function fun(a,b,c) {
 }
 const resFun = currying(fun)
 resFun(1)(2)(3)
+```
+ES6类继承
+---
+```
+class Animal {
+    head: 1,
+    legs: 4,
+    run: () => {
+        console.log('run')
+    }
+}
+var Cat extends Animal{}
+Cat.hasFather = true
+Cat.miaow = () => {
+    console.log('miaow')
+}
 ```
