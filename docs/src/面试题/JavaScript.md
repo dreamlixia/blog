@@ -38,7 +38,7 @@ function loadScript(url, callback) {
     document.body.appendChild(script);
 }
 ```
-asyn和defer的区别
+async和defer的区别
 ---
 相同点：都是异步加载scrit，加载过程都不会阻塞html的解析。
 
@@ -437,3 +437,53 @@ lint-staged: {"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
 ```
 **husky**: 在使用git commit时对代码进行eslint检查，git本身的一些勾子如pre-commit使用起来稍微麻烦，husky容易.
 - npm安装完跟目录会有.husky目录pre-commit配置文件，可自定义命令。
+
+es6 Map()和 WeakMap()的区别
+---
+都是一组键值对的集合。都是构造函数，使用new创建。
+
+**Map: **ES6提供的数据结构，因为传统的对象只能用字符串当作键，给使用带来很大的不便，所以产生了Map。
+
+Map类似于对象，也是键值对的集合。但是键的范围不限于字符串，可以是各种类型的值，包括对象。
+
+**MeakMap**：WeakMap设计目的在于，键名是对象的弱引用（垃圾回收机制不将该引用考虑在内），所以其所对应的对象可能会被自动回收，当对象被回收后，自动移除对应的键值对.
+ * 典型应用是，一个对应dom元素的WeakMap结构，当某个dom元素被删除后，其对应的WeakMap记录会被自动清除。
+ * 专用场合是，他的键所对应的对象，可能会在将来消失，因此，MeakMap有助于防止内存泄漏。
+
+1. WeakMap的键必须是对象，值可以是任意的；
+```
+var weakMap = new WeakMap()
+weakMap.set({}, 'XD')
+```
+2. WeakMap中的对象都是弱引用，即垃圾回收机制不考虑WeakMap对该对象的引用，也就是说，如果其他对象都不再引用该对象，那么回收机制会自动回收该对象所占的内存，不考虑该对象还存在于WeakMap中。
+
+WeakMap 只有四个常用方法：
+- 通过键检查元素是否存在 has(key)
+- 添加元素 set(key , value)
+- 通过键移除元素 delete(key)
+- 通过键获取值 get(key)
+```
+var meakMap = new WeakMap()
+var obj1 = {}, obj2 = {}
+meakMap.set(obj1, 'obj1')
+meakMap.set(obj2, 'obj2')
+
+meakMap.has(obj1) // true
+meakMap.get(obj2) // 'obj2
+meakMap.delete(obj1) // true
+meakMap.has(obj1) // false
+```
+
+**区别：**
+1. WeakMap的键必须是对象，键名所指向的对象，不计入垃圾回收机制；Map的键可以是任意值；
+2. WeakMap没有size属性，没有遍历操作；
+3. WeakMap没有key()、value()、entries()，而且无法清空（不支持clear方法）
+
+setInterval和setTimeout的区别
+---
+定时器，可以规定延迟时间再执行某个操作。
+
+- setInterval：可以一直循环下去，使用window.clearInterval()清除。
+- setTimeout在规定时间后执行完某个操作就停止了。
+
+使用函数名作为调用句柄的时候不能带参数，使用字符串调用可以。setTimeout(fun, 1000)或setTimeout('fun(name)', 1000)

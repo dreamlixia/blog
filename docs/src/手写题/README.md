@@ -156,6 +156,10 @@ xhrPost.onreadystatechange = function() {
     <img src='./../../../images/usePromiseToAjax.jpg'/>
 </div>
 
+```
+
+```
+
 深浅拷贝
 ---
 **浅拷贝**
@@ -316,13 +320,48 @@ function bindThis(f, otarget) {
 去重
 ---
 ```
-
+// 数组单个元素去重
+/**
+ * new Set
+ */
+var a1 = [1,1,3,4,5,5]
+console.log([...new Set(a1)])
+/**
+ * Array.from(new Set(arr))
+ */
+console.log(Array.from(new Set(a1)))
+/**
+ * for [].push indexOf === -1 
+ */
+let list = []
+for(var i = 0; i < a1.length; i ++) { // forEach
+    if(list.indexOf(a1[i]) == -1) {
+        list.push(a1[i])
+    }
+}
+console.log(list)
+/**
+ * reduce [] includes concat
+ */
+let res = a1.reduce((pre, cur) => {
+    if(!pre.includes(cur)) {
+        return pre.concat(cur)
+    } else {
+        return pre
+    }
+}, [])
+console.log(res)
+```
+```
+// 数组对象去重
+// 待续……
 ```
 数组扁平化
 ---
-递归、reduce
 ```
+var arr = [1,2,[3,4,[5],6],7,8]
 
+// 待续……
 ```
 reduce使用场景(6种)
 ---
@@ -495,4 +534,28 @@ Cat.hasFather = true
 Cat.miaow = () => {
     console.log('miaow')
 }
+```
+给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标
+---
+```
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    for(var i = 0; i < nums.length; i ++){
+        for(var j = i + 1; j < nums.length; j ++){
+            if(nums[i] == target - nums[j]){
+                return [i, j]
+            }
+        }
+    }
+};
+```
+
+手写Promise.all
+---
+```
+
 ```

@@ -33,8 +33,7 @@ var isPalindrome = function(x) {
     return true
 };
 
-var result = isPalindrome(1021)
-// true
+var result = isPalindrome(1021) // false
 ```
 两数之和
 ---
@@ -377,8 +376,22 @@ function print(n) {
  * @param {string} s
  * @return {boolean}
  */
-var isValid = function(str) {
-    
+var isValid = function(s) {
+    let obj = {
+        '(': ')',
+        '[': ']',
+        '{': '}'
+    }
+    let stack = []
+    for(var i=0; i<s.length;i++) {
+        if(s[i] in obj) {
+            stack.push(s[i])
+            console.log('s[i] =', s[i], ' stack', stack)
+        } else if(obj[stack.pop()] != s[i]) {
+            return false
+        }
+    }
+    return !stack.length
 };
 ```
 
