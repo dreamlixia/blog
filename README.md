@@ -12,8 +12,8 @@
 
 ### 运行：
 
-#### npm run docs:dev
+#### npm run docs:dev 或 npm run dev
 
 ### 打包
 
-#### npm run docs:build
+#### npm run docs:build 或 npm run build
