@@ -487,3 +487,13 @@ setInterval和setTimeout的区别
 - setTimeout在规定时间后执行完某个操作就停止了。
 
 使用函数名作为调用句柄的时候不能带参数，使用字符串调用可以。setTimeout(fun, 1000)或setTimeout('fun(name)', 1000)
+
+test和includes哪个性高更高？
+----
+在 JavaScript 中，test() 方法和 includes() 方法都是用于字符串的匹配操作。它们的区别如下：
+
+test() 方法是 RegExp 对象的方法，用于检测字符串是否与指定的正则表达式匹配。返回值为 true 或 false。
+
+includes() 方法是字符串对象的方法，用于检测一个字符串中是否包含另一个字符串。返回值为 true 或 false。
+
+在性能方面，**includes() 方法的性能更高**，因为它是字符串对象的本地方法，执行效率更快；而 test() 方法需要先将正则表达式编译成 RegExp 对象，再进行匹配，相对较慢。但是，在进行匹配时，如果需要使用复杂的正则表达式，test() 方法可能会更加灵活和可控。

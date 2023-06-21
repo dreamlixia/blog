@@ -42,6 +42,17 @@ label标签来定义表单控件间的关系，当用户选择该标签时，浏
 >content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>
 >```
 
+meta的基本应用
+---
+meta主要用于网页中的一些元数据，元数据就是不给用户看。
+
+- charset=utf-8指定字符集
+- name指定的数据名称
+- content指定的数据内容
+- keywords网站关键字，多个用逗号隔开
+- description网站的描述，会显示在搜索引擎的搜索结果中
+- title标签会作为搜索阶段的超链接文字显示
+
 html5的新特性
 ---
 1. 绘画canvas：html5的一个新元素，使用javascript在网页上绘制图形；
@@ -146,3 +157,17 @@ BFC
 块级格式化上下文，解决上下两个div的margin重叠问题。
 
 通过overflow:auto形成了BFC，因此右侧盒子不会与浮动的元素重叠。
+
+独立渲染区域，容器内的元素不会影响容器外的元素。
+
+**实现方法：**
+1. 浮动float除了none以外的值；
+2. 定位不是static或者relative；
+3. display为inline-block，table-cell，...
+4. overflow除了visible（auto，scroll，hidden）；
+5. html本身就是一个BFC。
+
+**作用：**
+1. margin重叠（高度塌陷）；
+2. 清除浮动；
+3. 阻止浮动元素被覆盖；
