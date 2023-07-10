@@ -63,7 +63,8 @@ title : 操作手册
 >git add -A
 >git commit -m 'deploy'
 > <USERNAME> 换成你自己的 Github 用户名，<REPO> 换成仓库名
->git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
+>git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages（本仓库运行 git push -f git@github.com:dreamlixia/blog.git master:gh-pages 即可）
+>
 >(如需要，关联远程仓库：git remote add origin git@github.com:dreamlixia/blog.git)
 >cd -
 >```
