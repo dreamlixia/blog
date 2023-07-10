@@ -163,3 +163,25 @@ Hooks 更新阶段
 对于更新阶段，说明上一次 workInProgress 树已经赋值给了 current 树。存放hooks信息的memoizedState，此时已经存在current树上，react对于hooks的处理逻辑和fiber树逻辑类似。
 
 对于一次函数组件更新，当再次执行hooks函数的时候，比如 useState(0) ，首先要从current的hooks中找到与当前workInProgressHook，对应的currentHooks，然后复制一份currentHooks给workInProgressHook,接下来hooks函数执行的时候,把最新的状态更新到workInProgressHook，保证hooks状态不丢失。
+
+
+useEffect 不支持关键词 async 的原因
+---
+使用 async/await 关键词，会返回一个promises，useEffect 的返回的也就是 promise 了。
+
+正确的写法是在 useEffect 内写一个异步函数，然后调用它。
+```
+useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const res = await fetch('xxx/url');
+            const data = await res.json();
+        } catch (e) {
+            console.error('Error: ', error);
+        }
+    };
+
+    fetchData();
+}, [])
+
+```
