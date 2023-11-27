@@ -9,6 +9,7 @@
 
 [//]: ![](https://github.com/dreamlixia/blog/raw/master/images/title.jpeg) 
 [//]:src="./images/title.jpeg"
+[//]: ![](https://dreamlixia.github.io/blog)
 
 <div style="text-align:center">
     <!-- <img width="50%" src="https://github.com/dreamlixia/blog/raw/master/images/title.jpeg" alt="一张猫猫图片" /> -->
