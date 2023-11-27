@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>html2canvas 踩坑 | Lynsey&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="This is a blog.">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.cd12c23a.css" as="style"><link rel="preload" href="/blog/assets/js/app.dd4e1206.js" as="script"><link rel="preload" href="/blog/assets/js/2.915bd00b.js" as="script"><link rel="preload" href="/blog/assets/js/5.891c2f33.js" as="script"><link rel="preload" href="/blog/assets/js/21.b2c3e483.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.c3aa3120.js"><link rel="prefetch" href="/blog/assets/js/11.fa1b225e.js"><link rel="prefetch" href="/blog/assets/js/12.1887387c.js"><link rel="prefetch" href="/blog/assets/js/13.543f9475.js"><link rel="prefetch" href="/blog/assets/js/14.d4c11c6a.js"><link rel="prefetch" href="/blog/assets/js/15.51fa06fa.js"><link rel="prefetch" href="/blog/assets/js/16.0513edff.js"><link rel="prefetch" href="/blog/assets/js/17.ba829a18.js"><link rel="prefetch" href="/blog/assets/js/18.6e857a47.js"><link rel="prefetch" href="/blog/assets/js/19.b72828fa.js"><link rel="prefetch" href="/blog/assets/js/20.d9dc7438.js"><link rel="prefetch" href="/blog/assets/js/22.8de587dc.js"><link rel="prefetch" href="/blog/assets/js/23.844c83d8.js"><link rel="prefetch" href="/blog/assets/js/24.0b2101ea.js"><link rel="prefetch" href="/blog/assets/js/25.21877be1.js"><link rel="prefetch" href="/blog/assets/js/26.e3abe35f.js"><link rel="prefetch" href="/blog/assets/js/27.f6952382.js"><link rel="prefetch" href="/blog/assets/js/28.8205a419.js"><link rel="prefetch" href="/blog/assets/js/29.fcb980cb.js"><link rel="prefetch" href="/blog/assets/js/3.255d8bb3.js"><link rel="prefetch" href="/blog/assets/js/30.81e08e34.js"><link rel="prefetch" href="/blog/assets/js/31.acde6a06.js"><link rel="prefetch" href="/blog/assets/js/32.f7e64d1a.js"><link rel="prefetch" href="/blog/assets/js/33.15b69a05.js"><link rel="prefetch" href="/blog/assets/js/34.2a1b7776.js"><link rel="prefetch" href="/blog/assets/js/35.91d0ae37.js"><link rel="prefetch" href="/blog/assets/js/36.7e617b5a.js"><link rel="prefetch" href="/blog/assets/js/37.86f495f8.js"><link rel="prefetch" href="/blog/assets/js/38.de79957e.js"><link rel="prefetch" href="/blog/assets/js/39.6045945f.js"><link rel="prefetch" href="/blog/assets/js/4.2eaa7409.js"><link rel="prefetch" href="/blog/assets/js/40.3d576906.js"><link rel="prefetch" href="/blog/assets/js/41.a60550f1.js"><link rel="prefetch" href="/blog/assets/js/42.c823536e.js"><link rel="prefetch" href="/blog/assets/js/43.fa0cd042.js"><link rel="prefetch" href="/blog/assets/js/44.077e1e53.js"><link rel="prefetch" href="/blog/assets/js/45.542739c1.js"><link rel="prefetch" href="/blog/assets/js/46.9e25d7c0.js"><link rel="prefetch" href="/blog/assets/js/47.05d4a62a.js"><link rel="prefetch" href="/blog/assets/js/48.cd929d68.js"><link rel="prefetch" href="/blog/assets/js/49.4d61b315.js"><link rel="prefetch" href="/blog/assets/js/50.4f77727f.js"><link rel="prefetch" href="/blog/assets/js/51.57882b3f.js"><link rel="prefetch" href="/blog/assets/js/52.283994db.js"><link rel="prefetch" href="/blog/assets/js/53.dfeff6d0.js"><link rel="prefetch" href="/blog/assets/js/54.53c4731b.js"><link rel="prefetch" href="/blog/assets/js/55.d3f0a745.js"><link rel="prefetch" href="/blog/assets/js/56.a30b992a.js"><link rel="prefetch" href="/blog/assets/js/57.444560bb.js"><link rel="prefetch" href="/blog/assets/js/58.5b821171.js"><link rel="prefetch" href="/blog/assets/js/59.87161cee.js"><link rel="prefetch" href="/blog/assets/js/6.b7753079.js"><link rel="prefetch" href="/blog/assets/js/60.2a9ada6a.js"><link rel="prefetch" href="/blog/assets/js/61.037c777d.js"><link rel="prefetch" href="/blog/assets/js/62.b9784aad.js"><link rel="prefetch" href="/blog/assets/js/63.0da090e0.js"><link rel="prefetch" href="/blog/assets/js/64.6452b78a.js"><link rel="prefetch" href="/blog/assets/js/65.5bf79c29.js"><link rel="prefetch" href="/blog/assets/js/66.90ce276c.js"><link rel="prefetch" href="/blog/assets/js/67.c68032ef.js"><link rel="prefetch" href="/blog/assets/js/68.953fb3ac.js"><link rel="prefetch" href="/blog/assets/js/69.f6ca5093.js"><link rel="prefetch" href="/blog/assets/js/7.a664d37c.js"><link rel="prefetch" href="/blog/assets/js/70.69707ea8.js"><link rel="prefetch" href="/blog/assets/js/71.b043a21f.js"><link rel="prefetch" href="/blog/assets/js/72.b3e3e775.js"><link rel="prefetch" href="/blog/assets/js/73.e62a7775.js"><link rel="prefetch" href="/blog/assets/js/74.919c110e.js"><link rel="prefetch" href="/blog/assets/js/75.069b0f91.js"><link rel="prefetch" href="/blog/assets/js/76.596f823c.js"><link rel="prefetch" href="/blog/assets/js/77.0444bdcc.js"><link rel="prefetch" href="/blog/assets/js/78.062fa1be.js"><link rel="prefetch" href="/blog/assets/js/79.7f6bb45d.js"><link rel="prefetch" href="/blog/assets/js/8.f554ec77.js"><link rel="prefetch" href="/blog/assets/js/80.3cf8b7d0.js"><link rel="prefetch" href="/blog/assets/js/81.308a288e.js"><link rel="prefetch" href="/blog/assets/js/82.6a494fdd.js"><link rel="prefetch" href="/blog/assets/js/83.9835abc6.js"><link rel="prefetch" href="/blog/assets/js/84.ccca3460.js"><link rel="prefetch" href="/blog/assets/js/9.6cbb2bac.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.cd12c23a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="https://github.com/dreamlixia/blog/raw/master/images/title.jpeg" alt="Lynsey's blog" class="logo"> <span class="site-name can-hide">Lynsey's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/src/前端/" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/blog/src/面试题/HTML/" class="nav-link">
+  面试题
+</a></div><div class="nav-item"><a href="/blog/src/手写题/" class="nav-link">
+  手写题
+</a></div><div class="nav-item"><a href="/blog/src/算法题/JS/" class="nav-link">
+  算法题
+</a></div><div class="nav-item"><a href="/blog/src/操作手册/开发运行此项目/" class="nav-link">
+  操作手册
+</a></div><div class="nav-item"><a href="/blog/src/主页/" class="nav-link">
+  主页
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/src/前端/" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/blog/src/面试题/HTML/" class="nav-link">
+  面试题
+</a></div><div class="nav-item"><a href="/blog/src/手写题/" class="nav-link">
+  手写题
+</a></div><div class="nav-item"><a href="/blog/src/算法题/JS/" class="nav-link">
+  算法题
+</a></div><div class="nav-item"><a href="/blog/src/操作手册/开发运行此项目/" class="nav-link">
+  操作手册
+</a></div><div class="nav-item"><a href="/blog/src/主页/" class="nav-link">
+  主页
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>GIT</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>HTML</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/src/前端/HTML/html2canvas.html" class="active sidebar-link">html2canvas</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/src/前端/HTML/html2canvas.html#html2canvas-踩坑" class="sidebar-link">html2canvas 踩坑</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/HTML/html2canvas.html#代码实现" class="sidebar-link">代码实现</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/HTML/html2canvas.html#生成倍图" class="sidebar-link">生成倍图</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/HTML/html2canvas.html#总结" class="sidebar-link">总结：</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/HTML/html2canvas.html#图片清晰度优化" class="sidebar-link">图片清晰度优化</a></li></ul></li><li><a href="/blog/src/前端/HTML/回流和重绘.html" class="sidebar-link">回流和重绘</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/src/前端/HTML/回流和重绘.html#_1-回流-重排" class="sidebar-link">1.回流（重排）</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/HTML/回流和重绘.html#_2-重绘" class="sidebar-link">2.重绘</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/HTML/回流和重绘.html#_3-触发回流和重绘的操作" class="sidebar-link">3.触发回流和重绘的操作</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/HTML/回流和重绘.html#_4-浏览器的优化机制" class="sidebar-link">4.浏览器的优化机制</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/HTML/回流和重绘.html#_5-减少回流和重绘的方法" class="sidebar-link">5.减少回流和重绘的方法</a></li></ul></li><li><a href="/blog/src/前端/HTML/实现一个简单的富文本编辑器.html" class="sidebar-link">实现一个简单的富文本编辑器</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/blog/src/前端/HTML/描述颜色.html" class="sidebar-link">描述颜色</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTTP</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node.js</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/blog/src/%E5%89%8D%E7%AB%AF/" aria-current="page" class="sidebar-link">目录</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>报错问题</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="html2canvas-踩坑"><a href="#html2canvas-踩坑" class="header-anchor">#</a> html2canvas 踩坑</h2> <hr> <p><a href="https://juejin.cn/post/7121631173549228069" target="_blank" rel="noopener noreferrer">html2canvas.js实现html生成图片-稀土掘金<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="代码实现"><a href="#代码实现" class="header-anchor">#</a> 代码实现</h2> <div class="language- extra-class"><pre class="language-text"><code>  import html2canvas from 'html2canvas';
+
+   // dom元素转为图片
+  const handleDomToImg = async () =&gt; {
+    // 获取dom元素
+    const graphImg = document.getElementById('htmlToImgBox');
+    // 创建canvas元素
+    const canvasdom = document.createElement('canvas');
+
+    // 获取dom宽高
+    const w = parseInt(window.getComputedStyle(graphImg).width, 10);
+    const h = parseInt(window.getComputedStyle(graphImg).height, 10);
+    
+    // 设定 canvas 元素属性宽高为 DOM 节点宽高 * 像素比 
+    const scaleBy = 2; //也可以用window.devicePixelRatio，
+    canvasdom.width = width * scaleBy; 
+    canvasdom.height = height * scaleBy;
+    
+    //scale:2 按比例增加分辨率，将绘制内容放大对应比例
+    const canvas = await html2canvas(graphImg, { canvas: canvasdom, scale: scaleBy,useCORS:true });
+    
+    //将canvas转为base64
+    const url = canvas.toDataURL();
+    
+    //配置下载的文件名
+    const fileName = `下载报告${new Date().valueOf()}`;
+    downloadFile(url, fileName);
+  };
+
+  const downloadFile = (href, fileName = '报告') =&gt; {
+    const downloadElement = document.createElement('a');
+    downloadElement.href = href;
+    downloadElement.download = `${fileName}.png`;
+    document.body.appendChild(downloadElement);
+    downloadElement.click();
+    document.body.removeChild(downloadElement);
+    window.URL.revokeObjectURL(href);
+  };
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>&lt;div className={style.preview} id=&quot;htmlToImgBox&quot;&gt;
+    &lt;div className={style['preview-title']}&gt;
+    &lt;span&gt;测试学校&lt;/span&gt;
+    &lt;span&gt;学习笔记完成情况&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div className={style['preview-sub-title']}&gt;
+    &lt;span&gt;2022-12-12 18:00:00&lt;/span&gt;
+    &lt;span&gt;高一年级&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div className={style['preview-content']}&gt;
+    &lt;div className={classnames(style['preview-card'], style.blue)}&gt;
+        &lt;div&gt;笔记上传数&lt;/div&gt;
+        &lt;div&gt;
+        共计
+        &lt;span className={style['preview-num']}&gt;3000&lt;/span&gt;
+        份
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div className={classnames(style['preview-card'], style.orange)}&gt;
+        &lt;div&gt;优秀笔记上传数 &lt;/div&gt;
+        &lt;div&gt;
+        共计
+        &lt;span className={style['preview-num']}&gt;1002&lt;/span&gt;
+        份
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div className={classnames(style['preview-card'], style.zise)}&gt;
+        &lt;div&gt;参与人数&lt;/div&gt;
+        &lt;div&gt;
+        共计
+        &lt;span className={style['preview-num']}&gt;3002&lt;/span&gt;
+        人
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div className={classnames(style['preview-card'], style.red)}&gt;
+        &lt;div&gt;参与人数占比&lt;/div&gt;
+        &lt;div&gt;
+        &lt;span className={style['preview-num']}&gt;37&lt;/span&gt;
+        %
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div className={style['preview-footer']}&gt;
+    学习笔记有助于帮助学生养成良好的学习习惯，促进对内容的理解，加强记忆知识点
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div><h2 id="生成倍图"><a href="#生成倍图" class="header-anchor">#</a> 生成倍图</h2> <p><code>canvasdom.width</code> 以及 <code>html2canvas</code> 的 <code>scale</code> 配置</p> <ol><li><p>canvasdom.width=2*w 、scale=2
+</p><div style="text-align:center;"><img width="100%" src="/blog/assets/img/canva2scale2.c56c36e7.png" alt=""></div><p></p></li> <li><p>canvasdom.width=2*w 、scale=1
+</p><div style="text-align:center;"><img width="100%" src="/blog/assets/img/canva2scale1.fad692c4.png" alt=""></div><p></p></li> <li><p>canvasdom.width=1*w 、scale=1
+</p><div style="text-align:center;"><img width="100%" src="/blog/assets/img/canva1scale1.e51c0d4e.png" alt=""></div><p></p></li> <li><p>canvasdom.width=1*w 、scale=2
+</p><div style="text-align:center;"><img width="100%" src="/blog/assets/img/canva1scale2.e9bb83bb.png" alt=""></div><p></p></li></ol> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结：</h2> <p><strong>canvasdom.width影响最终生成的图片的尺寸，scale配置项代表将绘制内容放大对应比例，如果需要生成2倍图，则需要同时将两个地方设置为2。</strong></p> <h2 id="图片清晰度优化"><a href="#图片清晰度优化" class="header-anchor">#</a> 图片清晰度优化</h2> <ol><li>canvas.width和canvas.style.width</li></ol> <ul><li>canvas.width / canvas.height 表示画布真实大小，我们并不可见</li> <li>canvas.style.width / canvas.style.height 表示画布输出到浏览器我们最终可见的的大小</li> <li>不提供canvas真实大小时，默认按300*150处理，如果指定canvas.width / canvas.height,没有指定canvas.style，则两者相同</li> <li>canvas绘制的时候先是参考自己本身画布大小进行绘制，绘制完毕，由style指定的大小，渲染在浏览器页面上。</li></ul> <p>canvas.width和canvas.style.width也是影响图片模糊的关键</p> <div class="language- extra-class"><pre class="language-text"><code> &lt;canvas id=&quot;diagonal&quot; style=&quot;border:1px solid;width:200px;height:200px;&quot; width=&quot;100px&quot; height=&quot;100px&quot;&gt;
+ 
+ function drawDiagonal(id) {
+      var canvas = document.getElementById(id);
+      var context = canvas.getContext(&quot;2d&quot;);
+      context.beginPath();
+      context.moveTo(0, 0);
+      context.lineTo(100, 100);
+      context.stroke();
+ }
+
+window.onload = function() {
+   drawDiagonal(&quot;diagonal&quot;);
+}
+</code></pre></div><p><strong>将canvas的属性width和height属性放大为2倍（或者设置为devicePixelRatio倍），最后将canvas的CSS样式width和height设置为原先1倍的大小，可以达到提高清晰度的目的。</strong></p> <div class="language- extra-class"><pre class="language-text"><code>convert2canvas() {
+    var shareContent = YourTargetElem; 
+    var width = shareContent.offsetWidth; 
+    var height = shareContent.offsetHeight; 
+    var canvas = document.createElement(&quot;canvas&quot;); 
+    var scale = 2; 
+
+    canvas.width = width * scale; 
+    canvas.height = height * scale; 
+    canvas.getContext(&quot;2d&quot;).scale(scale, scale); 
+
+    var opts = {
+        scale: scale, 
+        canvas: canvas, 
+        logging: true, 
+        width: width, 
+        height: height 
+    };
+    html2canvas(shareContent, opts).then(function (canvas) {
+        var context = canvas.getContext('2d');
+        var img = Canvas2Image.convertToImage(canvas, canvas.width, canvas.height);
+        document.body.appendChild(img);
+        $(img).css({ 
+            &quot;width&quot;: canvas.width / 2 + &quot;px&quot;, //缩小图片尺寸
+            &quot;height&quot;: canvas.height / 2 + &quot;px&quot;,
+        })
+    });
+}
+</code></pre></div> <div class="gitalk-container"><div id="gitalk-container"></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/src/前端/GIT/git命令类.html" class="prev">
+        git命令类
+      </a></span> <span class="next"><a href="/blog/src/前端/HTML/回流和重绘.html">
+        回流和重绘
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.dd4e1206.js" defer></script><script src="/blog/assets/js/2.915bd00b.js" defer></script><script src="/blog/assets/js/5.891c2f33.js" defer></script><script src="/blog/assets/js/21.b2c3e483.js" defer></script>
+  </body>
+</html>
