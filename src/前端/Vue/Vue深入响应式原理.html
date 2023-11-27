@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>深入响应式原理 | Lynsey&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="This is a blog.">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.cd12c23a.css" as="style"><link rel="preload" href="/blog/assets/js/app.dd4e1206.js" as="script"><link rel="preload" href="/blog/assets/js/2.915bd00b.js" as="script"><link rel="preload" href="/blog/assets/js/6.b7753079.js" as="script"><link rel="preload" href="/blog/assets/js/21.b2c3e483.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.c3aa3120.js"><link rel="prefetch" href="/blog/assets/js/11.fa1b225e.js"><link rel="prefetch" href="/blog/assets/js/12.1887387c.js"><link rel="prefetch" href="/blog/assets/js/13.543f9475.js"><link rel="prefetch" href="/blog/assets/js/14.d4c11c6a.js"><link rel="prefetch" href="/blog/assets/js/15.51fa06fa.js"><link rel="prefetch" href="/blog/assets/js/16.0513edff.js"><link rel="prefetch" href="/blog/assets/js/17.ba829a18.js"><link rel="prefetch" href="/blog/assets/js/18.6e857a47.js"><link rel="prefetch" href="/blog/assets/js/19.b72828fa.js"><link rel="prefetch" href="/blog/assets/js/20.d9dc7438.js"><link rel="prefetch" href="/blog/assets/js/22.8de587dc.js"><link rel="prefetch" href="/blog/assets/js/23.844c83d8.js"><link rel="prefetch" href="/blog/assets/js/24.0b2101ea.js"><link rel="prefetch" href="/blog/assets/js/25.21877be1.js"><link rel="prefetch" href="/blog/assets/js/26.e3abe35f.js"><link rel="prefetch" href="/blog/assets/js/27.f6952382.js"><link rel="prefetch" href="/blog/assets/js/28.8205a419.js"><link rel="prefetch" href="/blog/assets/js/29.fcb980cb.js"><link rel="prefetch" href="/blog/assets/js/3.255d8bb3.js"><link rel="prefetch" href="/blog/assets/js/30.81e08e34.js"><link rel="prefetch" href="/blog/assets/js/31.acde6a06.js"><link rel="prefetch" href="/blog/assets/js/32.f7e64d1a.js"><link rel="prefetch" href="/blog/assets/js/33.15b69a05.js"><link rel="prefetch" href="/blog/assets/js/34.2a1b7776.js"><link rel="prefetch" href="/blog/assets/js/35.91d0ae37.js"><link rel="prefetch" href="/blog/assets/js/36.7e617b5a.js"><link rel="prefetch" href="/blog/assets/js/37.86f495f8.js"><link rel="prefetch" href="/blog/assets/js/38.de79957e.js"><link rel="prefetch" href="/blog/assets/js/39.6045945f.js"><link rel="prefetch" href="/blog/assets/js/4.2eaa7409.js"><link rel="prefetch" href="/blog/assets/js/40.3d576906.js"><link rel="prefetch" href="/blog/assets/js/41.a60550f1.js"><link rel="prefetch" href="/blog/assets/js/42.c823536e.js"><link rel="prefetch" href="/blog/assets/js/43.fa0cd042.js"><link rel="prefetch" href="/blog/assets/js/44.077e1e53.js"><link rel="prefetch" href="/blog/assets/js/45.542739c1.js"><link rel="prefetch" href="/blog/assets/js/46.9e25d7c0.js"><link rel="prefetch" href="/blog/assets/js/47.05d4a62a.js"><link rel="prefetch" href="/blog/assets/js/48.cd929d68.js"><link rel="prefetch" href="/blog/assets/js/49.4d61b315.js"><link rel="prefetch" href="/blog/assets/js/5.891c2f33.js"><link rel="prefetch" href="/blog/assets/js/50.4f77727f.js"><link rel="prefetch" href="/blog/assets/js/51.57882b3f.js"><link rel="prefetch" href="/blog/assets/js/52.283994db.js"><link rel="prefetch" href="/blog/assets/js/53.dfeff6d0.js"><link rel="prefetch" href="/blog/assets/js/54.53c4731b.js"><link rel="prefetch" href="/blog/assets/js/55.d3f0a745.js"><link rel="prefetch" href="/blog/assets/js/56.a30b992a.js"><link rel="prefetch" href="/blog/assets/js/57.444560bb.js"><link rel="prefetch" href="/blog/assets/js/58.5b821171.js"><link rel="prefetch" href="/blog/assets/js/59.87161cee.js"><link rel="prefetch" href="/blog/assets/js/60.2a9ada6a.js"><link rel="prefetch" href="/blog/assets/js/61.037c777d.js"><link rel="prefetch" href="/blog/assets/js/62.b9784aad.js"><link rel="prefetch" href="/blog/assets/js/63.0da090e0.js"><link rel="prefetch" href="/blog/assets/js/64.6452b78a.js"><link rel="prefetch" href="/blog/assets/js/65.5bf79c29.js"><link rel="prefetch" href="/blog/assets/js/66.90ce276c.js"><link rel="prefetch" href="/blog/assets/js/67.c68032ef.js"><link rel="prefetch" href="/blog/assets/js/68.953fb3ac.js"><link rel="prefetch" href="/blog/assets/js/69.f6ca5093.js"><link rel="prefetch" href="/blog/assets/js/7.a664d37c.js"><link rel="prefetch" href="/blog/assets/js/70.69707ea8.js"><link rel="prefetch" href="/blog/assets/js/71.b043a21f.js"><link rel="prefetch" href="/blog/assets/js/72.b3e3e775.js"><link rel="prefetch" href="/blog/assets/js/73.e62a7775.js"><link rel="prefetch" href="/blog/assets/js/74.919c110e.js"><link rel="prefetch" href="/blog/assets/js/75.069b0f91.js"><link rel="prefetch" href="/blog/assets/js/76.596f823c.js"><link rel="prefetch" href="/blog/assets/js/77.0444bdcc.js"><link rel="prefetch" href="/blog/assets/js/78.062fa1be.js"><link rel="prefetch" href="/blog/assets/js/79.7f6bb45d.js"><link rel="prefetch" href="/blog/assets/js/8.f554ec77.js"><link rel="prefetch" href="/blog/assets/js/80.3cf8b7d0.js"><link rel="prefetch" href="/blog/assets/js/81.308a288e.js"><link rel="prefetch" href="/blog/assets/js/82.6a494fdd.js"><link rel="prefetch" href="/blog/assets/js/83.9835abc6.js"><link rel="prefetch" href="/blog/assets/js/84.ccca3460.js"><link rel="prefetch" href="/blog/assets/js/9.6cbb2bac.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.cd12c23a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="https://github.com/dreamlixia/blog/raw/master/images/title.jpeg" alt="Lynsey's blog" class="logo"> <span class="site-name can-hide">Lynsey's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/src/前端/" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/blog/src/面试题/HTML/" class="nav-link">
+  面试题
+</a></div><div class="nav-item"><a href="/blog/src/手写题/" class="nav-link">
+  手写题
+</a></div><div class="nav-item"><a href="/blog/src/算法题/JS/" class="nav-link">
+  算法题
+</a></div><div class="nav-item"><a href="/blog/src/操作手册/开发运行此项目/" class="nav-link">
+  操作手册
+</a></div><div class="nav-item"><a href="/blog/src/主页/" class="nav-link">
+  主页
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/src/前端/" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/blog/src/面试题/HTML/" class="nav-link">
+  面试题
+</a></div><div class="nav-item"><a href="/blog/src/手写题/" class="nav-link">
+  手写题
+</a></div><div class="nav-item"><a href="/blog/src/算法题/JS/" class="nav-link">
+  算法题
+</a></div><div class="nav-item"><a href="/blog/src/操作手册/开发运行此项目/" class="nav-link">
+  操作手册
+</a></div><div class="nav-item"><a href="/blog/src/主页/" class="nav-link">
+  主页
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>GIT</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTTP</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node.js</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/blog/src/%E5%89%8D%E7%AB%AF/" aria-current="page" class="sidebar-link">目录</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Vue</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/src/前端/Vue/SSR.html" class="sidebar-link">SSR</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/SSR.html#_1-概念" class="sidebar-link">1.概念</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/SSR.html#_2-ssr优势-为什么要用ssr" class="sidebar-link">2.SSR优势（为什么要用SSR？）</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/SSR.html#_3-ssr劣势" class="sidebar-link">3.SSR劣势</a></li></ul></li><li><a href="/blog/src/前端/Vue/Vue深入响应式原理.html" class="active sidebar-link">Vue深入响应式原理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#深入响应式原理" class="sidebar-link">深入响应式原理</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_1-vue基本原理" class="sidebar-link">1.Vue基本原理</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_2-双向数据绑定原理" class="sidebar-link">2.双向数据绑定原理</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_3-使用object-defineproperty-进行数据劫持的缺点" class="sidebar-link">3.使用Object.defineProperty()进行数据劫持的缺点</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_4-mvvm、mvc、mvp的区别" class="sidebar-link">4.MVVM、MVC、MVP的区别</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_5-computed和watch的区别" class="sidebar-link">5.Computed和Watch的区别</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_6-computed和methods区别" class="sidebar-link">6.Computed和Methods区别</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_7-slot" class="sidebar-link">7.slot</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_8-过滤器" class="sidebar-link">8.过滤器</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_9-如何保存页面当前的状态" class="sidebar-link">9.如何保存页面当前的状态</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_10-常见的事件修饰符" class="sidebar-link">10.常见的事件修饰符</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_11-v-if、v-show、v-html原理" class="sidebar-link">11.v-if、v-show、v-html原理</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_12-v-model" class="sidebar-link">12.v-model</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_13-为什么vue的data属性是一个函数而不是对象" class="sidebar-link">13.为什么Vue的data属性是一个函数而不是对象</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_14-对keep-alive的理解-如何实现-具体缓存的是什么" class="sidebar-link">14.对keep-alive的理解，如何实现，具体缓存的是什么</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_15-nexttick的原理和作用" class="sidebar-link">15.$nextTick的原理和作用</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_16-keep-alive中的生命周期有哪些" class="sidebar-link">16.keep-alive中的生命周期有哪些？</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_17-组件通信" class="sidebar-link">17.组件通信</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#_18-vue的性能优化有哪些" class="sidebar-link">18.Vue的性能优化有哪些</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#如何修改element组件库的样式-样式穿透" class="sidebar-link">如何修改element组件库的样式： 样式穿透</a></li><li class="sidebar-sub-header"><a href="/blog/src/前端/Vue/Vue深入响应式原理.html#proxy实现数据响应式-vue3-0" class="sidebar-link">Proxy实现数据响应式 Vue3.0</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>报错问题</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="深入响应式原理"><a href="#深入响应式原理" class="header-anchor">#</a> 深入响应式原理</h2> <p>待补充。。。</p> <h2 id="_1-vue基本原理"><a href="#_1-vue基本原理" class="header-anchor">#</a> 1.Vue基本原理</h2> <p>当一个Vue实例创建时，Vue会遍历Data中的属性，用Object.defineProperty(Vue3.0使用Proxy)将它们转化为getter/setter，并且在内部追踪相关依赖，在属性被访问和修改时通知变化。每个组件实例都有相应的watcher程序实例，它会在组件渲染的过程中把属性记录为依赖，之后当依赖项的setter被调用时，会通知watcher重新计算，从而致使它关联的组件得已更新。
+</p><div style="text-align:center;"><img width="100%" src="/blog/assets/img/Vue基本原理.93fa9ac1.jpg" alt=""></div><p></p> <h2 id="_2-双向数据绑定原理"><a href="#_2-双向数据绑定原理" class="header-anchor">#</a> 2.双向数据绑定原理</h2> <p>Vue.js是采用数据劫持结合发布-订阅模式的方式，通过Object.defineProperty()来劫持各个属性的getter，setter，在数据变动时发布消息给订阅者，触发相应的监听回调。主要分为以下几个步骤：</p> <ol><li>需要observe的数据对象进行递归遍历，包括子属性对象的属性，都加上setter和getter这样的话，给这个对象的某个值赋值，就会触发setter，那么就能监听到了数据变化</li> <li>compile解析模板指令，将模板中的变量替换成数据，然后初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，更新视图</li> <li>Watcher订阅者是Observer和Compile之间通信的桥梁，主要做的事情是: ①在自身实例化时往属性订阅器(dep)里面添加自己 ②自身必须有一个update()方法 ③待属性变动dep.notice()通知时，能调用自身的update()方法，并触发Compile中绑定的回调，则功成身退。</li> <li>MVVM作为数据绑定的入口，整合Observer、Compile和Watcher三者，通过Observer来监听自己的model数据变化，通过Compile来解析编译模板指令，最终利用Watcher搭起Observer和Compile之间的通信桥梁，达到数据变化 -&gt; 视图更新；视图交互变化(input) -&gt; 数据model变更的双向绑定效果。
+<div style="text-align:center;"><img width="100%" src="/blog/assets/img/数据双向绑定.bce02447.jpg" alt=""></div></li></ol> <h2 id="_3-使用object-defineproperty-进行数据劫持的缺点"><a href="#_3-使用object-defineproperty-进行数据劫持的缺点" class="header-anchor">#</a> 3.使用Object.defineProperty()进行数据劫持的缺点</h2> <p>在对一些属性进行操作时，这种方式无法拦截，比如通过下标修改数组或者给对象新增属性，都不能触发组件的重新渲染，因为Object.defineProperty()不能拦截这些操作。更精确地说，对于数组而言，大部分操作时拦截不到的，只是Vue通过内部重写函数的方式解决了这个问题。</p> <p>Vue3.0中已经不使用这个方法了，而是通过Proxy对对象进行代理，从而实现数据劫持。使用Proxy的好处是它可以监听到任何方式的数据改变，唯一的缺点就是兼容性问题，Proxy是ES6的语法。</p> <h2 id="_4-mvvm、mvc、mvp的区别"><a href="#_4-mvvm、mvc、mvp的区别" class="header-anchor">#</a> 4.MVVM、MVC、MVP的区别</h2> <p>MVVM、MVC、MVP是是三种常见的软件架构设计模式。主要通过分离关注点的方式来组织代码结构，优化开发效率。</p> <p><strong>背景：</strong> 在开发单页面应用时，往往一个路由页面对应了一个脚本文件，所有的页面逻辑都在一个脚本文件里。页面的渲染、数据的获取，对用户事件的响应所有的应用逻辑都混合在一起，这样在开发简单项目时，可能看不出什么问题，如果项目变得复杂，那么整个文件就会变得冗长、混乱，这样对项目开发和后期的项目维护是非常不利的。</p> <ol><li>MVC（Model View Controller）</li></ol> <p>View和Model应用了观察者模式，当Model层发生改变的时候他会通知View层更新页面，而Controller是Mode层和View层的纽带，主要负责用户与应用的响应操作，当用户与页面产生交互时，Controller的事件触发器开始工作，调用Model层，来完成对Model层的修改，然后Model层再去通知View更新。</p> <ol start="2"><li>MVVM（Model View ViewModel）</li></ol> <ul><li>Model代表数据模型，数据和业务逻辑都在Model层中定义；</li> <li>View代表UI视图，负责数据的展示；</li> <li>ViewModel负责监听Model中数据的改变并且控制视图的更新，处理用户交互操作；</li></ul> <p>这种模式实现了 Model和View的数据自动同步，因此开发者只需要专注于数据的维护操作即可，而不需要自己操作DOM。
+</p><div style="text-align:center;"><img width="100%" src="/blog/assets/img/MVVM.e342748d.jpg" alt=""></div><p></p> <ol start="3"><li>MVP（Model View Presenter）</li></ol> <ul><li>各部分之间的通信，都是双向的；</li> <li>View和Model不发生联系，都是通过Presenter传递。可以将一个presenter用于多个视图，而不需要改变Presenter的逻辑。这个特性非常有用，因为视图的变化总是要比模型变化频繁；</li> <li>View非常薄，不部署任何业务逻辑，被称为“被动视图”，既没有任何主动性。Presenter非常厚，业务逻辑都在那里。</li></ul> <blockquote><p>缺点：
+由于对视图的渲染都放在了presenter里，两者的交互就比较频繁。一旦视图需要变更，Presenter也需要变更。</p></blockquote> <h2 id="_5-computed和watch的区别"><a href="#_5-computed和watch的区别" class="header-anchor">#</a> 5.Computed和Watch的区别</h2> <h4 id="computed"><a href="#computed" class="header-anchor">#</a> Computed:</h4> <ul><li>支持缓存，只有当依赖数据发生了变化，才会重新计算；</li> <li>不支持异步，当Computed中有异步操作时，无法监听数据的变化；</li> <li>Computed值默认走缓存，计算属性是基于他们的响应式依赖进行缓存的，也就是基于data声明过，或者父组件传递过来的props数据进行计算的；</li> <li>如果一个属性是由其他属性计算而来的，这个属性依赖其他属性，一般会使用Computed；</li> <li>如果属性值是函数，默认使用get方法，函数的返回值就是属性的属性值；在Computed中，有一个get和set方法，当数据发生变化时，会调用set方法；</li></ul> <h4 id="watch"><a href="#watch" class="header-anchor">#</a> Watch：</h4> <ul><li>不支持缓存，数据变化时，就触发相应操作；</li> <li>支持异步监听；</li> <li>监听的函数接收两个参数，最新的值和变化前的值；</li> <li>监听的数据必须是data中声明的或者父组件props中带传递过来的，当发生变化时，会触发其他操作，函数有两个参数：
+<ul><li>immediate: 组件加载立即触发回调函数；</li> <li>deep: 深度监听，发现数据内部的变化，在复杂数据类型中使用，例如数组中的对象发生变化。需要注意的是，deep无法监听到数组和对象内部的变化。</li></ul></li></ul> <h4 id="总结"><a href="#总结" class="header-anchor">#</a> 总结：</h4> <ul><li>computed 计算属性 : 依赖其它属性值，并且 computed 的值有缓存，只有它依赖的属性值发生改变，下一次获取 computed 的值时才会重新计算 computed 的值。</li> <li>watch 侦听器 : 更多的是<strong>观察</strong>的作用，<strong>无缓存性</strong>，类似于某些数据的监听回调，每当监听的数据变化时都会执行回调进行后续操作。</li></ul> <p><strong>运用场景：</strong></p> <ul><li>当需要进行数值计算,并且依赖于其它数据时，应该使用 computed，因为可以利用 computed 的缓存特性，避免每次获取值时都要重新计算。</li> <li>当需要在数据变化时执行异步或开销较大的操作时，应该使用 watch，使用 watch 选项允许执行异步操作 ( 访问一个 API )，限制执行该操作的频率，并在得到最终结果前，设置中间状态。这些都是计算属性无法做到的。</li></ul> <h2 id="_6-computed和methods区别"><a href="#_6-computed和methods区别" class="header-anchor">#</a> 6.Computed和Methods区别</h2> <p>相同点：</p> <p>可以将同一函数定义为一个method或者一个计算属性，其最终的结果，两种方式是相同的。</p> <p>不同点：</p> <ul><li>Computed：计算属性是基于它们的依赖进行缓存的，只有当相关依赖项发生改变时，才会去重新计算；</li> <li>Method：在调用时总会执行该函数。</li></ul> <h2 id="_7-slot"><a href="#_7-slot" class="header-anchor">#</a> 7.slot</h2> <h4 id="概念"><a href="#概念" class="header-anchor">#</a> 概念</h4> <p>插槽，Vue的内容分发机制。组件内部的模版引擎是使用slot元素作为承载分发内容的出口。插槽slot是子组件的一个模板标签元素，而这个标签元素是否显示，如何显示，是有父组件决定的。</p> <h4 id="分类"><a href="#分类" class="header-anchor">#</a> 分类</h4> <ul><li>默认插槽：匿名插槽，slot没有指定name属性，一个组件只有一个默认插槽；</li> <li>具名插槽：指定name属性的slot，一个组件可以有多个具名插槽；</li> <li>作用域插槽：是匿名插槽和具名插槽的一个变体，不同点是子组件内部数据可以传递给父组件，父组件根据这个数据决定如何渲染该插槽；</li></ul> <h4 id="实现原理"><a href="#实现原理" class="header-anchor">#</a> 实现原理</h4> <p>当子组件vm实例化时，获取到父组件传入的slot标签内容，放在<a href="">vm.$slot</a>中，默认插槽为<a href="">vm.$slot.default</a>，具名插槽为<a href="">vm.$slot.xxx</a>，当组件执行渲染函数时，遇到slot标签，使用$slot中的内容进行替换，此时可以为插槽传递数据，如果存在数据，则可称为作用域插槽。</p> <h2 id="_8-过滤器"><a href="#_8-过滤器" class="header-anchor">#</a> 8.过滤器</h2> <p>过滤数据，Vue中使用filters来过滤数据，不会改变数据，只是过滤数据，改变用户看到的输出（Computed、Methods都是通过修改数据来处理数据的输出显示）。</p> <p><strong>使用场景：</strong></p> <ul><li>价格、时间等的格式化显示；</li> <li>根据日期，显示比如多少天前之类的输出展示，可以使用filters过滤器来处理数据；</li></ul> <h4 id="如何实现一个过滤器"><a href="#如何实现一个过滤器" class="header-anchor">#</a> 如何实现一个过滤器？</h4> <p>过滤器是一个函数，用在插值表达式{{}}和v-bind表达式中。然后放在操作符“｜”后面进行指示。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;div&gt;价格：{{price | filterPrice}}&lt;/div&gt;
+
+filters: {
+    filterPrice (price) {
+        return price ? '¥' + price : '---'
+    }
+}
+</code></pre></div><h2 id="_9-如何保存页面当前的状态"><a href="#_9-如何保存页面当前的状态" class="header-anchor">#</a> 9.如何保存页面当前的状态</h2> <p>两种情况：组件会被卸载或不会被卸载</p> <h4 id="组件会被卸载"><a href="#组件会被卸载" class="header-anchor">#</a> 组件会被卸载：</h4> <ol><li><p>使用LocalStorage / SessionStorage</p> <p>在组件即将销毁的生命周期（componentWillUnmount / beforeDestroy）使用此方法，需要注意的是组件更新状态的时机。</p> <p><strong>优点：</strong></p> <ul><li>兼容性好，不需要引入第三方库或者工具；</li> <li>简单快捷，可以满足大部分需求；</li></ul> <p><strong>缺点：</strong></p> <ul><li>状态通过JSON存储（相当于深拷贝），如果状态中有特殊情况（Date对象/Regexp对象）会得到字符串而不是原来的值；</li> <li>使用标示flag时，执行后退、下一页等操作会失效；</li></ul></li> <li><p>路由传参</p> <p>使用react-router的link，prop -- to 实现路由传递参数，通过history.location.state获取</p> <p><strong>优点：</strong></p> <ul><li>简单快捷，不会污染LocalStorage/SessionStorage;</li> <li>可以存储Date对象和Regexp对象；（不用担心JSON.stringify()和parse()的不足）</li></ul> <p><strong>缺点：</strong></p> <ul><li>如果跳转页面过多，每个页面都需要使用同样的方法进行传值取值，相当冗余混乱；</li></ul></li></ol> <h4 id="组件不会被卸载"><a href="#组件不会被卸载" class="header-anchor">#</a> 组件不会被卸载：</h4> <ol><li><p>单页面页面渲染</p> <p>父子组件正常传参（prop）的方式</p> <p><strong>优点：</strong></p> <ul><li>代码量少，方便</li></ul> <p><strong>缺点：</strong></p> <ul><li>无法用路由定位页面</li></ul></li> <li><p>keep-alive</p> <p>&lt;keep-alive&gt; 包裹动态组件时，会缓存不活动的组件实例，而不是销毁他们。是一个抽象组件，它自身不会渲染一个组件，也不会出现在组件的父组件链中。</p> <p>主要用于保存组件状态或避免重新渲染。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;keep-alive&gt;
+    &lt;component :is=&quot;view&quot;&gt;&lt;/component&gt;
+&lt;/keep-alive&gt;
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>&lt;keep-alive&gt;
+    &lt;component v-if=&quot;$router.meta.keepAlive&quot;&gt;&lt;/component&gt;
+&lt;/keep-alive&gt;
+
+// router.js
+{
+    path: '/',
+    name: '',
+    component: () =&gt; import('./../src/XXX.vue'),
+    meta: {
+        keepAlive: true // 需要被缓存
+    }
+}
+</code></pre></div></li></ol> <h2 id="_10-常见的事件修饰符"><a href="#_10-常见的事件修饰符" class="header-anchor">#</a> 10.常见的事件修饰符</h2> <ul><li>.stop: 阻止事件冒泡</li></ul> <div class="language- extra-class"><pre class="language-text"><code>&lt;div v-on:click.stop=&quot;doThis&quot;&gt;&lt;/div&gt;
+</code></pre></div><ul><li>.prevent: 阻止默认行为</li></ul> <div class="language- extra-class"><pre class="language-text"><code>// 提交事件不再重载页面
+&lt;form v-on:submit.prevent=&quot;doSubmit&quot;&gt;&lt;/form&gt;
+// 只有修饰符
+&lt;form v-on:submit.prevent&gt;&lt;/form&gt;
+</code></pre></div><p>修饰符可以串联：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;div v-on:click.stop.prevent=&quot;doThat&quot;&gt;&lt;/div&gt;
+</code></pre></div><ul><li>.capture: 与事件冒泡相反，事件捕获由外到内；</li></ul> <div class="language- extra-class"><pre class="language-text"><code>&lt;div v-on:click.capture=&quot;doThis&quot;&gt;&lt;/div&gt;
+</code></pre></div><ul><li>.self: 只会触发自己范围内的事件，不包含子元素；</li></ul> <p>阻止所有点击：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;div v-on:click.prevent.self=&quot;doThis&quot;&gt;&lt;/div&gt;
+</code></pre></div><p>只阻止元素对自身的点击</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;div v-on:click.self.prevent=&quot;doThis&quot;&gt;&lt;/div&gt;
+</code></pre></div><ul><li>.once: 只触发一次，还能被用到自定义的组件事件上。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>&lt;div v-on:click.once=&quot;doThis&quot;&gt;&lt;/div&gt;
+</code></pre></div><ul><li>.passive: 滚动事件的默认行为将会立即触发，不会等待onScroll完成，这其中包含 <code>event.preventDefault()</code> 的情况</li></ul> <div class="language- extra-class"><pre class="language-text"><code>&lt;div v-on:scroll.passive=&quot;onScroll&quot;&gt;&lt;/div&gt;
+</code></pre></div><h2 id="_11-v-if、v-show、v-html原理"><a href="#_11-v-if、v-show、v-html原理" class="header-anchor">#</a> 11.v-if、v-show、v-html原理</h2> <h4 id="v-html"><a href="#v-html" class="header-anchor">#</a> v-html</h4> <p>更新元素的innerHTML。按普通HTML插入，不会进行Vue模板编译。</p> <blockquote><p>1、coped样式不会应中在v-html内部, 因为那部分HTML不会进行Vue模板编译；</p> <p>2、在网上站动态渲染HTML是非常危险的，容易导致XSS攻击。只在可信内容上使用v-html，永不用在提交内容上。</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>&lt;div v-html=&quot;html&quot;&gt;&lt;/div&gt;
+</code></pre></div><h4 id="v-show"><a href="#v-show" class="header-anchor">#</a> v-show</h4> <p>条件渲染，display: none，会生成vnode，render的时候会渲染真实节点，只是在render的过程中会修改属性display</p> <h4 id="v-if"><a href="#v-if" class="header-anchor">#</a> v-if</h4> <p>根据表达式值的truthiness来有条件渲染元素。在切换元素及它他的数据绑定/组件被销毁或重建。</p> <blockquote><p>当v-if和v-for一起使用，v-for的优先级高。</p></blockquote> <h4 id="v-if和v-show的区别"><a href="#v-if和v-show的区别" class="header-anchor">#</a> v-if和v-show的区别</h4> <ol><li>v-if是dom操作，添加或删除dom元素，有局部编译/卸载的过程，v-show是改变css的display；</li> <li>v-if用于运行条件不经常改变的场景，v-show适用于频繁变化；</li> <li>v-if是惰性的，第一次如果不为真不进行编译，只有当条件第一次为真时才开始局部编译，v-show在任何条件下都会被编译，然后被缓存，dom元素保留；</li> <li>v-if有更高的切换消耗，v-show有更高的初始渲染消耗；</li></ol> <h2 id="_12-v-model"><a href="#_12-v-model" class="header-anchor">#</a> 12.v-model</h2> <p>数据双向绑定，本质是语法糖，背后的操作有两个：</p> <ul><li>v-bind绑定value；</li> <li>v-on给当前元素绑定不同的事件；</li></ul> <blockquote><p>text和textarea绑定input事件；</p> <p>checkbox、radio和select绑定change事件；</p></blockquote> <h4 id="修饰符"><a href="#修饰符" class="header-anchor">#</a> 修饰符</h4> <ol><li>.lazy : change时更新
+v-model在每次input事件触发后将输入框的值与数据进行绑定，加上.lazy后转为在change事件之后进行同步</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&lt;input v-model.lazy=&quot;msg&quot;&gt;
+</code></pre></div><ol start="2"><li>.number : 输入值转为数值类型</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&lt;input v-model.number=&quot;age&quot; type=&quot;number&quot;&gt;
+</code></pre></div><p>因为即使在type定义为number，HTML输入元素的值也会总会返回字符串。如果这个值无法被parseFloat()解析，则会返回原始的值。</p> <ol start="3"><li>.trim : 自动过滤首尾空格</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&lt;input v-model.trim=&quot;msg&quot;&gt;
+</code></pre></div><h4 id="自定义组件的v-model"><a href="#自定义组件的v-model" class="header-anchor">#</a> 自定义组件的v-model</h4> <div class="language- extra-class"><pre class="language-text"><code>Vue.component('custom-checkbox', {
+    model: {
+        prop: 'checked',
+        event: 'change'
+    },
+    props: {
+        checked: Boolean
+    },
+    template: `
+        &lt;input
+            type=&quot;checkbox&quot;
+            v-bind:checked=&quot;checked&quot;
+            v-on:change=&quot;$emit('change', $event.target.checked)&quot;
+        &gt;
+    `
+})
+</code></pre></div><h4 id="sync修饰符"><a href="#sync修饰符" class="header-anchor">#</a> .sync修饰符</h4> <p><strong>作用：</strong> 可以实现子组件与父组件的双向绑定，并且可以实现子组件同步修改父组件的值。</p> <p><strong>本质：</strong>
+正常父传子：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;son :a=&quot;a&quot; :b=&quot;b&quot;&gt;&lt;/son&gt;
+</code></pre></div><p>加上.sync后父传子</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;son :a.sync=&quot;a&quot; :b.sync=&quot;b&quot;&gt;&lt;/son&gt;
+</code></pre></div><p>它等价于</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;son
+    :a=&quot;a&quot;
+    :b=&quot;b&quot;
+    @update:a=&quot;val =&gt; a = val&quot;
+    @update:b=&quot;val =&gt; b = val&quot;
+&gt;&lt;/son&gt;
+</code></pre></div><p>相当于多了一个事件监听，事件名为update:a, 回调函数中，会把接收到的值赋给属性绑定的数据项中。</p> <h4 id="sync与v-model的区别"><a href="#sync与v-model的区别" class="header-anchor">#</a> .sync与v-model的区别</h4> <p><strong>相同点：</strong> 都是语法糖</p> <p><strong>不同点：</strong></p> <ul><li>格式写法不同，都可以实现父子组件的数据双向通信。</li></ul> <blockquote><div class="language- extra-class"><pre class="language-text"><code>v-model=&quot;num&quot;
+:num.sync=&quot;num&quot;
+
+v-model: @input + value
+:num.sync: @update:num 
+</code></pre></div></blockquote> <ul><li>v-model只能有一个，.sync可以有多个</li></ul> <h2 id="_13-为什么vue的data属性是一个函数而不是对象"><a href="#_13-为什么vue的data属性是一个函数而不是对象" class="header-anchor">#</a> 13.为什么Vue的data属性是一个函数而不是对象</h2> <h4 id="实例和组件定义的区别"><a href="#实例和组件定义的区别" class="header-anchor">#</a> 实例和组件定义的区别</h4> <ul><li>实例定义既可以是对象，也可以是函数</li></ul> <div class="language- extra-class"><pre class="language-text"><code>const app = new Vue({
+    el: &quot;#app&quot;,
+    // 对象格式
+    data: {
+        foo: 'foo'
+    },
+    // 函数格式
+    data () {
+        return {
+            foo: 'foo'
+        }
+    }
+})
+</code></pre></div><ul><li>组件定义只能是函数</li></ul> <p>如果为组件的data直接定一个对象</p> <div class="language- extra-class"><pre class="language-text"><code>Vue.component({
+    template: `&lt;div&gt;组件&lt;/div&gt;`,
+    data: {
+        foo: 'foo'
+    }
+})
+</code></pre></div><p>会看到报错信息：</p> <div class="language- extra-class"><pre class="language-text"><code>[Vue warn]: The &quot;data&quot; option should be a function that returns a per-instance value in component defintions.
+</code></pre></div><h4 id="原因"><a href="#原因" class="header-anchor">#</a> 原因：</h4> <p>根实例是单例，不会产生数据污染的情况。
+如果一个组件有多个Vue实例，就会造成多个组件实例对象共用一个data对象（共用一个内存地址，对象A的值发生改变，同样对象B的值也发生改变），产生数据污染，而使用函数，初始化data时，就会返回全新的data对象。</p> <h2 id="_14-对keep-alive的理解-如何实现-具体缓存的是什么"><a href="#_14-对keep-alive的理解-如何实现-具体缓存的是什么" class="header-anchor">#</a> 14.对keep-alive的理解，如何实现，具体缓存的是什么</h2> <ol><li>概念
+如果需要在组件切换的时候，保留一些组件的状态防止多次渲染，就需要使用&lt;keep-alive&gt;包裹需要保存的组件。</li></ol> <p>用法</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;keep-alive&gt; // 基本
+    &lt;component :is=&quot;view&quot;&gt;&lt;/component&gt;
+&lt;/keep-alive&gt;
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>&lt;keep-alive&gt; // 多个条件判断的子组件
+    &lt;compo-a v-if=&quot;a &gt; 1&quot;&gt;&lt;/compo-a&gt;
+    &lt;compo-b v-else&gt;&lt;/compo-b&gt;
+&lt;/keep-alive&gt;
+</code></pre></div><ol start="2"><li>Props</li></ol> <ul><li>includes: 只能缓存名称匹配的组件</li> <li>exculdes: 任何名称匹配的组件都不会被缓存</li> <li>max: 最多可以缓存组件实例的个数</li></ul> <p>&lt;keep-alive&gt;包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。</p> <p>当组件在&lt;keep-alive&gt;内被切换时，生命周期 activated 和 deactivated 会被调用。</p> <ol start="3"><li>render函数</li></ol> <ul><li>会在&lt;keep-alive&gt;组件内部去写自己的内容，所以可以获取slot的内容，然后根据这个去获取组件</li> <li>&lt;keep-alive&gt;只对第一个组件有效，所以只获取第一个子组件</li> <li>和&lt;keep-alive&gt;搭配使用的一般有：动态组件和router-view</li></ul> <p>内容待更新……</p> <h4 id="lru-least-recently-used-缓存策略"><a href="#lru-least-recently-used-缓存策略" class="header-anchor">#</a> LRU （least recently used）缓存策略</h4> <p>LRU 缓存策略∶ 从内存中找出最久未使用的数据并置换新的数据。
+LRU（Least rencently used）算法根据数据的历史访问记录来进行淘汰数据，其核心思想是 &quot;如果数据最近被访问过，那么将来被访问的几率也更高&quot;。 最常见的实现是使用一个链表保存缓存数据，详细算法实现如下∶</p> <ul><li>新数据插入到链表头部</li> <li>每当缓存命中（即缓存数据被访问），则将数据移到链表头部</li> <li>链表满的时候，将链表尾部的数据丢弃。</li></ul> <h2 id="_15-nexttick的原理和作用"><a href="#_15-nexttick的原理和作用" class="header-anchor">#</a> 15.$nextTick的原理和作用</h2> <ol><li>全局方法
+将回调推迟到下一个DOM更新周期后执行。在更改了一些数据等待DOM更新后立即使用它。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>import { createApp, nextTick } from 'vue'
+const App = createApp({
+    setUp () {
+        const message = ref('Hello')
+        const changeMessage = async newMessage =&gt; {
+            message.value = newMessage
+            await nextTick()
+            console.log('DOM updated')
+        }
+    }
+})
+
+</code></pre></div><ol start="2"><li>实例方法
+它跟全局方法 nextTick 一样，不同的是回调的 this 自动绑定到调用它的实例上。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>createApp({
+    methods: {
+        doSomeThing() {
+            this.message = 'message'
+            // dom未更新
+            this.$nextTick(function(){
+                // dom更新了，this被绑定到当前实例
+                this.forExample()
+            })
+        }
+    }
+})
+</code></pre></div><h2 id="_16-keep-alive中的生命周期有哪些"><a href="#_16-keep-alive中的生命周期有哪些" class="header-anchor">#</a> 16.keep-alive中的生命周期有哪些？</h2> <ul><li>activated：在组件第一次渲染时会被调用，之后在每次缓存组件被激活时调用。</li> <li>deactivated：组件被停用（离开路由）时调用。</li></ul> <p>keep-alive 是Vue提供的内置组件，对组件进行缓存，在组件切换过程中将状态保存在缓存中，防止重复渲染DOM。</p> <h2 id="_17-组件通信"><a href="#_17-组件通信" class="header-anchor">#</a> 17.组件通信</h2> <ol><li>父组件通过props向子组件传递数据，子组件通过$emit给父组件传递数据，父组件通过v-on监听并接收参数，兄弟组件用$emit发送，$on接收。</li> <li>依赖注入：用于父子/祖孙之间的通信，provide发送数据或方法，inject接收数据或方法。</li> <li>ref/$refs: 用于父子组件的通信，ref写在子组件上，他的引用指向了子组件的实例，可以通过实例来访问组件的数据和方法：</li></ol> <p>子组件：</p> <div class="language- extra-class"><pre class="language-text"><code>export default {
+  data () {
+    return {
+      name: 'JavaScript'
+    }
+  },
+  methods: {
+    sayHello () {
+      console.log('hello')
+    }
+  }
+}
+</code></pre></div><p>父组件：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+  &lt;child ref=&quot;child&quot;&gt;&lt;/component-a&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  import child from './child.vue'
+  export default {
+    components: { child },
+    mounted () {
+      console.log(this.$refs.child.name);  // JavaScript
+      this.$refs.child.sayHello();  // hello
+    }
+  }
+&lt;/script&gt;
+</code></pre></div><ol start="4"><li>$parent和$children:
+<ul><li>$parent: 可以访问父组件的实例，访问的是上一级父组件的属性和方法；</li> <li>$children: 访问的是子组件的实例，但是不能保证顺序，并且访问的数据也不是响应式的。</li></ul></li> <li>跨代通信：$attrs和$listeners.</li></ol> <p>inheritAttrs:</p> <ul><li>默认值为true，继承所有父组件除props之外的所有属性；</li> <li>false，只继承父组件的class属性。</li></ul> <p>$attrs: 继承所有父组件的属性（出prop传递的属性、class、style），一般用在子组件上；</p> <p>$listeners: 属性是一个对象，里面包含了作用在这个组件上的所有监听器，可以配合v-on=&quot;$listeners&quot;将所有事件监听器指向这个组件的某个特定子元素，相当于子组件继承父组件的事件。</p> <h2 id="_18-vue的性能优化有哪些"><a href="#_18-vue的性能优化有哪些" class="header-anchor">#</a> 18.Vue的性能优化有哪些</h2> <ul><li>代码模块化、组件化、复用性高、可配置性强、减少重复代码</li> <li>懒加载模块</li></ul> <div class="language- extra-class"><pre class="language-text"><code>const getDemo = () =&gt; import('./demo.js');
+getDemo().then({ testDemo } =&gt; testDemo());
+</code></pre></div><ul><li>懒加载路由拆分</li></ul> <div class="language- extra-class"><pre class="language-text"><code>const routes = [
+    {path: '/', component: () =&gt; import('./dashboard.vue')}, 
+    {path: '/page', component: () =&gt; import('./page.vue')}
+]
+</code></pre></div><ul><li>使用cdn加载外部资源或静态文件上cdn</li> <li>减少图片使用，使用css3代替图片，优化压缩图片（base64、软件压缩、cdn压缩）</li> <li>v-for进行遍历渲染的时候，每一项都设置唯一的key值</li> <li>使用的全局变量在销毁时全部置为null，避免内存泄漏</li> <li>使用keep-alive对组件进行缓存</li> <li>打包优化，productionSourceMap设置为false，否则最终打包过后会生成一些map文件，如果不关掉，生成环境是可以通过map去查看源码，并且可以开启gzip压缩，使打包过后体积变小</li></ul> <h2 id="如何修改element组件库的样式-样式穿透"><a href="#如何修改element组件库的样式-样式穿透" class="header-anchor">#</a> 如何修改element组件库的样式： 样式穿透</h2> <p>组件样式穿透 &gt;&gt;&gt; 或 /deep/ 或 ::deep</p> <p>css原生样式，可以直接使用 &gt;&gt;&gt;</p> <p>sass/less可能无法识别，使用 /deep/ 和 ::deep 选择器(都是 &gt;&gt;&gt; 的别名)</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;style scoped&gt;
+     .a {
+        &gt;&gt;&gt; .b {
+            color: red;
+        }
+     }
+&lt;/style&gt;
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>&lt;style lang='sass' scoped&gt;
+.a {
+    /deep/ .b {
+        color: blue;
+    }
+}
+// 或者
+.a /deep/ .b {
+    color: blue;
+}
+&lt;/style&gt;
+
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>&lt;style lang='sass' scoped&gt;
+.a {
+    ::deep .b {
+        color: blue;
+    }
+}
+// 或者
+.a ::deep .b {
+    color: blue;
+}
+&lt;/style&gt;
+</code></pre></div><p>vue3.0的环境下，安装项目时选择了dart-sass。这个不支持/deep/和&gt;&gt;&gt;写法。只能用::deep，选择node-sass不会有这个问题。</p> <p>建议使用::deep方式，保险并且编译速度更快。</p> <h2 id="proxy实现数据响应式-vue3-0"><a href="#proxy实现数据响应式-vue3-0" class="header-anchor">#</a> Proxy实现数据响应式 Vue3.0</h2> <div class="language- extra-class"><pre class="language-text"><code>let onWatch = (obj, setBind, getLogger) =&gt; {
+    let handler = {
+        get(taget, property, receiver) {
+            getLogger(target, property)
+            return Reflect.get(target, property, receiver)
+        },
+        set(target, property, value, receiver) {
+            setBind(value, property)
+            return Reflect.set(target, property, value)
+        }
+    }
+    return new Proxy(obj, handler)
+}
+let obj = { a: 1 }
+let p = onWatch(
+    obj,
+    (v, property) =&gt; {
+        console.log(`监听到属性${property}改变为${v}`)
+    },
+    (target, property) =&gt; {
+        console.log(`'${property}' = ${target[property]}`)
+    }
+)
+p.a = 2 // 监听到属性a改变
+p.a // 'a' = 2
+</code></pre></div><p>当然这是简单版的响应式实现，如果需要实现一个 Vue 中的响应式， 需要在 get 中收集依赖，在 set 派发更新，之所以 Vue3.0 要使用 Proxy 替换原本的 API 原因在于 Proxy 无需一层层递归为每个属 性添加代理，一次即可完成以上操作，性能上更好，并且原本的实现 有一些数据更新不能监听到，但是 Proxy 可以完美监听到任何方式 的数据改变，唯一缺陷就是浏览器的兼容性不好。</p> <hr> <hr> <div class="gitalk-container"><div id="gitalk-container"></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新时间:</span> <span class="time">3/1/2023, 11:43:16 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/src/前端/Vue/SSR.html" class="prev">
+        SSR
+      </a></span> <span class="next"><a href="/blog/src/前端/报错问题/gulp与node版本问题报错.html">
+        gulp与node版本问题报错
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.dd4e1206.js" defer></script><script src="/blog/assets/js/2.915bd00b.js" defer></script><script src="/blog/assets/js/6.b7753079.js" defer></script><script src="/blog/assets/js/21.b2c3e483.js" defer></script>
+  </body>
+</html>
