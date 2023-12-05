@@ -15,3 +15,11 @@
     - 使用git pull更新代码，本地master的commitId会改变，会变成2
 
 #### 3. git修改最后一次提交注释：git commit --amend
+
+#### 常用命令
+1. ```git reset --soft HEAD^``` 或 ```git reset --soft HEAD~1```
+撤销上一次的本地commit并退回到暂存区，不删除工作区改动的代码；
+2. ```git reset --mixed HEAD^```
+撤销上一次的本地commit并退回到工作区，不删除工作区改动的代码；
+3. ```git commmit --amend``` 进入 vim 模式后编辑(i)，保存退出（:wq）；
+修改上一次的commit信息；
