@@ -93,3 +93,27 @@ $color: #008c8c;
 3. 提高样式代码的可维护性
 4. 结构清晰，便于扩展可以方便的屏蔽浏览器私有的语法差异
 5. 轻松实现多重继承，完全兼容了CSS代码，提高了开发效率。
+
+字体小于12px怎么实现
+---
+> font-size默认16px
+1. transform: scale()（字体变小，但是空间形态还在，有换行会继续存在换行）
+```
+transform: scale(0.625);
+transform-origin: left;
+```
+scale 可以取负值；
+
+2. zoom（空间缩小，不会换行）
+假如你需要10px字体，则```10/16=0.625```,```zoom: 0.625```即可，以此类推，使用需要的像素值除以基准16
+
+3. svg（不会换行）
+```
+<div class="box">
+  <img src="/vite.svg" alt="" />
+  <svg width="200" height="12">
+    <text font-size="10" x="0" y="1em" fill="#cd0000">这是用于测试的文案，会换行哦</text>
+  </svg>
+  <i>123</i>
+</div>
+```

@@ -1,6 +1,8 @@
 const getConfig = require('./lib')
 const config = getConfig('src')
-
+// const expandAllPlugin = require('./expandAll.js'); // 手动写插件默认所有菜单都展开这个方法有问题，暂不引入
+// vuepress 官网资料： https://www.vuepress.cn/zh/theme/default-theme-config.html#%E4%BE%A7%E8%BE%B9%E6%A0%8F
+// sidebar 待配置
 module.exports = {
     title: "Lynsey's blog", //"My Blog",
     description: "This is a blog.",
@@ -27,6 +29,7 @@ module.exports = {
     searchMaxSuggestions: 10,
     // 项目开始时间
     startYear: '2022',
+    smoothScroll: true,
     // plugins: [
     //     'meting', {
     //       metingApi: "https://music.163.com/#/playlist?id=5312894314", // "https://meting.sigure.xyz/api/music",
@@ -67,6 +70,7 @@ module.exports = {
           mini: true,
           autoplay: true
         }
-      }
+      },
+      // expandAllPlugin(),
     ]
 }

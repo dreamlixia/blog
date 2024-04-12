@@ -1,4 +1,4 @@
-TypeScript 基础
+### TypeScript 基础
 ---
 
 1.```type``` 和 ```interface``` 的区别
