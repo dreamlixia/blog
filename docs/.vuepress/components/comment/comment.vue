@@ -3,8 +3,8 @@
     <div id="gitalk-container"></div>
   </div>
 </template>
-<script>
 
+<script>
 import Gitalk from 'gitalk'
 import md5 from 'js-md5';
 
@@ -25,6 +25,7 @@ export default {
     let script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js';
     body.appendChild(script);
+
     script.onload = () => {
       const commentConfig = {
         clientID: 'cc97c48ea73de9896594',
@@ -39,11 +40,12 @@ export default {
         id: md5(location.pathname),
         distractionFreeMode: false,
       };
+
       const gitalk = new Gitalk(commentConfig);
+
       gitalk.render('gitalk-container');
     };
     // 'https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js'
-
   }
 };
 </script>

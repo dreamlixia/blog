@@ -5,7 +5,7 @@ title: 目录
 手写Object.create
 ---
 思路：将传入的对象作为原型
-```
+```js
 function create(obj) {
     function F() {}
     f.prototype = obj
@@ -17,7 +17,7 @@ function create(obj) {
 [本博客面试题模块有解析](https://dreamlixia.github.io/blog/#/src/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaScript.html#%E9%98%B2%E6%8A%96-debounce)
 
 不管事件的触发频率有多高，一定在事件触发后的n秒后才执行，如果在n秒内再次触发了事件，那么以新的时间为准，n秒后再执行。
-```
+```js
 function debounce(event, time) {
     let timer = null
     return function(...args) {
@@ -29,7 +29,7 @@ function debounce(event, time) {
 }
 ```
 有时候需要立即执行一次，再等后面事件触发后等待n秒执行。
-```
+```js
 function debounce1(event, time) {
     let timer = null
     let flag = true
@@ -48,7 +48,7 @@ function debounce1(event, time) {
 节流(throttle)
 ---
 不管事件的触发频率有多高，只在单位时间内执行一次。
-```
+```js
 function throttle(event, time) {
     let timer = null
     return function(...args) {
@@ -62,7 +62,7 @@ function throttle(event, time) {
 }
 ```
 时间戳方式 ？
-```
+```js
 function throttleTime(event, time) {
     let prev = 0
     let timer = null
@@ -82,7 +82,7 @@ function throttleTime(event, time) {
 ```
 Promise
 ---
-```
+```js
 const PENDING = 'pending'
 const FULFILLED = 'fulfilled'
 const REJECTED = 'rejected'
@@ -115,7 +115,7 @@ function MyPromise(executor) {
 原生xhr
 ---
 get
-```
+```js
 /**
  * 1. 创建xhr对象
  * 2. open 请求方式，url
@@ -132,7 +132,7 @@ xhr.onreadystatechange = function() {
 }
 ```
 post
-```
+```js
 /**
  * 1. 创建xhr对象
  * 2. open post， url
@@ -156,7 +156,7 @@ xhrPost.onreadystatechange = function() {
     <img src='./../../../images/usePromiseToAjax.jpg'/>
 </div>
 
-```
+```js
 
 ```
 
@@ -164,7 +164,7 @@ xhrPost.onreadystatechange = function() {
 ---
 **浅拷贝**
 * for...in 遍历原对象的属性 / Object.keys()
-```
+```js
 const obj = { a: { d: 1 }, b: 2, c: 3 }
 function clone(target) {
     let cloneTarget = {}
@@ -178,7 +178,7 @@ obj.a.d = 'a'
 console.log(obj1) // { a: { d: 'a' }, b: 2, c: 3 } 浅拷贝只有一层的对象不变，有子对象会变
 ```
 * Object.entries
-```
+```js
 const obj = { a: { d: 1 }, b: 2, c: 3 }
 function clone(target) {
     let cloneTarget = {}
@@ -192,7 +192,7 @@ obj.a.d = 'd'
 console.log(obj1) // 变了 { a: { d: 'd' }, b: 2, c: 3 }
 ```
 * Object.assign / ...
-```
+```js
 let obj1 = {
     a: undefined,
     b: 1, 
@@ -204,7 +204,7 @@ obj1.d.x = '3'
 console.log(obj2)
 ```
 * lodash库的_.clone方法
-```
+```js
 var _ = require('lodash')
 var obj = {
     a: 1,
@@ -215,7 +215,7 @@ var obj1 = _.clone(obj)
 console.log(obj.b.f === obj1.b.f) // true
 ```
 * 数组的concat / slice
-```
+```js
 var c = [2, { age: '12' }]
 var d = c.concat()
 d[1].age = '100'
@@ -228,7 +228,7 @@ console.log(a) // a的值变了 [1, { name: '111' }]
 ```
 **深拷贝**
 * JSON.stringify：弊端：忽略value为function, undefind, symbol, 并且在序列化BigInt时会抛出语法错误：TypeError: Do not know how to serialize a BigInt
-```
+```js
 var obj = { a: 1, b: 2, c: 3 }
 var obj2 = JSON.stringify(obj)
 obj.a = 'a'
@@ -236,7 +236,7 @@ obj2 = JSON.parse(obj2)
 console.log(obj, obj2) // {a: 'a', b: 2, c: 3} '{"a":1,"b":2,"c":3}'
 ```
 * lodash库中的_.cloneDeep方法
-```
+```js
 var _ = require('lodash')
 var obj1 = {
     a: 1,
@@ -247,7 +247,7 @@ var obj2 = _.cloneDeep(obj1)
 console.log(obj1.b.f === obj2.b.f) // true
 ```
 * 递归，for...in循环，如果为属性对象则递归
-```
+```js
 let obj10 = { a: { d: 'd' }, b: [1, 2], c: undefined }
 function cloneObj(obj) {
     let clone = {}
@@ -267,7 +267,7 @@ console.log(res) // 不变
 异步循环打印
 ---
 用promise、async、await实现
-```
+```js
 var sleep = function(time, i) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -295,7 +295,7 @@ start()
 call、apply、bind 
 ---
 [牛客题解](https://www.nowcoder.com/profile/539362727/codeBookDetail?submissionId=118943499)
-```
+```js
 function applyThis(f, otarget) {
     return function() {
         return f.apply(otarget, arguments)
@@ -319,7 +319,7 @@ function bindThis(f, otarget) {
 ```
 去重
 ---
-```
+```js
 // 数组单个元素去重
 /**
  * new Set
@@ -352,13 +352,13 @@ let res = a1.reduce((pre, cur) => {
 }, [])
 console.log(res)
 ```
-```
+```js
 // 数组对象去重
 // 待续……
 ```
 数组扁平化
 ---
-```
+```js
 var arr = [1,2,[3,4,[5],6],7,8]
 
 // 待续……
@@ -370,7 +370,7 @@ reduce使用场景(6种)
 [本博客前端JS模块有解析](https://dreamlixia.github.io/blog/#/src/%E5%89%8D%E7%AB%AF/JS/ES6%E6%8A%80%E5%B7%A7/reduce.html)
 
 求和
-```
+```js
 const arr = [1,2,3,4,5]
 let sum = arr.reduce((pre, next) => {
     return pre + next
@@ -378,7 +378,7 @@ let sum = arr.reduce((pre, next) => {
 console.log(sum) // 15
 ```
 求乘积
-```
+```js
 const arr = [1,2,3,4,5]
 let product = arr.reduce((pre, next) => {
     return pre * next
@@ -386,7 +386,8 @@ let product = arr.reduce((pre, next) => {
 console.log(product) // 120
 ```
 去重
-```const arr1 = [1,1,2,3,4,5,5,6]
+```js
+const arr1 = [1,1,2,3,4,5,5,6]
 const single = arr1.reduce((pre, cur) => {
     if(!pre.includes(cur)){
         return pre.concat(cur)
@@ -397,7 +398,7 @@ const single = arr1.reduce((pre, cur) => {
 console.log(single) // [1, 2, 3, 4, 5, 6]
 ```
 计算元素在数组中出现的次数
-```
+```js
 let nums = arr1.reduce((pre, next) => {
     if(next in pre) {
         pre[next] ++
@@ -409,7 +410,7 @@ let nums = arr1.reduce((pre, next) => {
 console.log(nums) // {1: 2, 2: 1, 3: 1, 4: 1, 5: 2, 6: 1}
 ```
 多维数组转化成一维数组
-```
+```js
 const arr2 = [1,2,[3,[4,[5],6]],7]
 let flat = function(arr) {
     return arr.reduce((pre, next) => pre.concat(Array.isArray(next) ? flat(next) : next), [])
@@ -417,7 +418,7 @@ let flat = function(arr) {
 console.log(flat(arr2)) // [1, 2, 3, 4, 5, 6, 7]
 ```
 二维数组转化成一维数组
-```
+```js
 const arr3 = [[1,2],[3,4],[5,6]]
 const result = function(arr) {
     return arr.reduce((pre, next) => pre.concat(next))
@@ -425,7 +426,7 @@ const result = function(arr) {
 console.log(result(arr3)) // [1, 2, 3, 4, 5, 6]
 ```
 数组对象里的属性求和
-```
+```js
 let arrObj = [
     { name: 'name1', age: 10 },
     { name: 'name2', age: 20 },
@@ -444,7 +445,7 @@ console.log(sums(arrObj, 'age')) // 100
 答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
 
 0,1,1,2,3,5,8,13,21,34,…… 从第三项开始，每一项都等于前两项之和。
-```
+```js
 var fib = function(n) {
     let data = 1000000007;
     if(n < 2) {
@@ -466,7 +467,7 @@ var fib = function(n) {
 
 ```
 自定义hook
-```
+```js
  import React, { useState, useEffect } from 'react'
 
  function usePosition() {
@@ -505,7 +506,7 @@ var fib = function(n) {
 函数柯里化
 ---
 把接受多个参数的函数变成接受一个单一参数的函数，返回接受其余参数并且返回结果的新函数的技术。
-```
+```js
 function currying(fn, ...args) {
     if(args.length >= fn.length) {
         return fn(...args)
@@ -521,7 +522,7 @@ resFun(1)(2)(3)
 ```
 ES6类继承
 ---
-```
+```js
 class Animal {
     head: 1,
     legs: 4,
@@ -537,7 +538,7 @@ Cat.miaow = () => {
 ```
 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标
 ---
-```
+```js
 /**
  * @param {number[]} nums
  * @param {number} target
@@ -558,4 +559,20 @@ var twoSum = function(nums, target) {
 ---
 ```
 
+```
+
+格式化大小单位的方法
+---
+```js
+function formatFileSize(size) {
+  const units = ['B', 'KB', 'MB', 'GB'];
+  let unitIndex = 0;
+  while (size > 1024 && unitIndex < units.length - 1) {
+    size /= 1024;
+    unitIndex++;
+  }
+  return `${size.toFixed(2)} ${units[unitIndex]}`;
+}
+
+formatFileSize(1); // '1.00 B'
 ```
