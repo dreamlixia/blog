@@ -147,7 +147,10 @@ export default Com2_1;
 
 问：如何获取多个 context ？
 ---
-嵌套 Context.Consumer 来消费 context，示例：[代码](https://codesandbox.io/p/sandbox/boring-nobel-hq92x4?file=%2Fsrc%2FApp.js%3A19%2C26)
+1. 嵌套 Context.Consumer 来消费 context，示例：[代码](https://codesandbox.io/p/sandbox/boring-nobel-hq92x4?file=%2Fsrc%2FApp.js%3A19%2C26)
+
+会导致嵌套炸弹的问题。
+
 ```js
 import React, { createContext } from "react";
 
@@ -186,4 +189,56 @@ class Child extends React.Component {
     );
   }
 }
+```
+
+2. 创建一个包含所有 Context 的全局 Context 提供方 Provider，避免嵌套，在需要时只需要从单个 Context 中获取素有所需值。
+```js
+// GlobalContextProvider.tsx
+import React, { createContext, useState, useContext } from 'react';
+
+const Context1 = createContext();
+
+const GlobalContextProvider = ({ children }) => {
+  const [id, setId] = useState(0);
+  const [name, setName] = useState('init');
+
+  const value = {
+    id,
+    setId,
+    name,
+    setName
+  }
+
+  return <Context1.Provider>{children}</Context1.Provider>
+}
+
+export const useContextCom = () => {
+  const context = useContext(Context1);
+  if (!context) {
+    return '-';
+  }
+  return context;
+}
+
+export default GlobalContextProvider;
+```
+```js
+import GlobalContextProvider, { useContextCom } from './GlobalContextProvider';
+
+const MyComponent = () => {
+  const { id, setId, name, setName } = useContextCom();
+  return (
+    <>result: name: { name }; id: { id }</>
+  )
+}
+
+const Com = () => {
+  return (
+    <GlobalContextProvider>
+      <MyComponent />
+    </GlobalContextProvider>
+  )
+};
+
+export default Com;
 ```
