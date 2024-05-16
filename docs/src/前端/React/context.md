@@ -242,3 +242,6 @@ const Com = () => {
 
 export default Com;
 ```
+在这个示例中，GlobalContextProvider 包裹了 <MyComponent /> 和其他 Component，所以在 MyComponent 和 其他 Component 内部，以及它们的子组件中，我们都可以通过 useContextCom hook 来访问 id 和 setId 这两个值。
+
+需要在 GlobalContextProvider 中提供一个初始 id 和 name 的值，如示例。
