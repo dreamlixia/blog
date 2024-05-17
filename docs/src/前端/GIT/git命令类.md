@@ -1,8 +1,6 @@
-git pull失败不能合自动合并时：强制pull合并：
+强制pull合并
 ---
->```
->git pull origin master --allow-unrelated-histories
->```
+`git pull` 失败不能合自动合并时使用 `git pull origin master --allow-unrelated-histories`
 
 git fetch和git pull的区别
 ---
