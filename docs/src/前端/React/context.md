@@ -108,13 +108,13 @@ export default function Com() {
   return (
     <MyContext.Provider value={{ store, setStore }}>
         <button
-            onClick={() =>
-            setStore({
-                name: "xiaosun",
-            })
-            }
-            >
-            change to xiaosun
+          onClick={() =>
+          setStore({
+              name: "xiaosun",
+          })
+          }
+        >
+          change to xiaosun
         </button>
     </MyContext.Provider>
   );
