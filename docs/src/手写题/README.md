@@ -409,7 +409,7 @@ let nums = arr1.reduce((pre, next) => {
 }, {})
 console.log(nums) // {1: 2, 2: 1, 3: 1, 4: 1, 5: 2, 6: 1}
 ```
-多维数组转化成一维数组
+多维数组转化成一维数组 数组扁平化
 ```js
 const arr2 = [1,2,[3,[4,[5],6]],7]
 let flat = function(arr) {
@@ -438,6 +438,17 @@ let sums = function(arr, param) {
 }
 console.log(sums(arrObj, 'age')) // 100
 ```
+手写flat
+---
+```js
+
+```
+递归实现阶乘
+---
+```js
+
+```
+
 斐波那契数列
 ---
 [力扣原题](https://leetcode.cn/problems/fei-bo-na-qi-shu-lie-lcof/)

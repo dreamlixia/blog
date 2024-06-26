@@ -730,7 +730,7 @@ var mergeTwoLists = function(l1, l2) {
 
 输入: [3,2,3,1,2,4,5,5,6], k = 4
 输出: 4
-```
+```js
 var findKthLargest = function(nums, k) {
     // 先排序，下标为n-k的值即为目标，需考虑负数情况
     nums.sort((a,b)=>a-b)
@@ -750,7 +750,7 @@ var findKthLargest = function(nums, k) {
 - 双向遍历数组， 比较值
 - 不相等返回false，否则true
 
-```
+```js
 var isPalindrome = function(head) {
     /**
      * 定义init数组
@@ -776,7 +776,7 @@ var isPalindrome = function(head) {
 ```
 归并排序
 ---
-```
+```js
 /**
  * @param head1 
  * @param head2 
@@ -793,7 +793,7 @@ var isPalindrome = function(head) {
     上述过程可以通过递归实现。递归的终止条件是链表的节点个数小于或等于 11，即当链表为空或者链表只包含 11 个节点时，不需要对链表进行拆分和排序。
  */
 ```
-```
+```js
 const merge = (head1, head2) => {
     const dummyHead = new ListNode(0);
     let temp = dummyHead, temp1 = head1, temp2 = head2;
@@ -847,7 +847,7 @@ var sortList = function(head) {
 
 快指针每次走两步，慢指针走一步，在某个时刻，如果存在环，快指针一定会在某一步追上慢指针实现套圈，即两个指针指向同一节点，返回true。
 
-```
+```js
 var hasCycle = function(head) {
     let fastHead = head
     let slowHead = head
@@ -867,7 +867,7 @@ var hasCycle = function(head) {
 
 如果遇到遍历过的，说明存在环
 
-```
+```js
 var detectCycle = function(head) {
     const visited = new Set()
     while(head != null) {
