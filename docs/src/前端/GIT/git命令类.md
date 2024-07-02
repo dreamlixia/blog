@@ -22,6 +22,8 @@ git fetch和git pull的区别
 撤销上一次的本地commit并退回到工作区，不删除工作区改动的代码；
 3. ```git commmit --amend``` 
 修改上一次的commit信息；进入 vim 模式后编辑(i)，保存退出（:wq）；
+4. `git checkout -b feat/dev orign/feat/dev`
+切换到远程分支 feat/dev
 
 git rebse
 ---
