@@ -552,6 +552,27 @@ JSON.stringify的三个参数
 JSON.stringify(value[, replacer [, space]])
 ```
 - value：将要序列化成 JSON 字符串的值。
+    - 非数组对象的属性不能保证以特定的顺序出现在序列化后的字符串中。
+    - 布尔值、数字、字符串的包装对象在序列化过程中会自动转换成对应的原始值。
+    ```js
+    JSON.stringify([new Number(1), new String("false"), new Boolean(false)]); // '[1,"false",false]'
+    ```
+    - undefined、任意的函数以及 symbol 值，出现在非数组对象的属性值中时，在序列化过程中会被忽略；出现在数组中时，会被转换成 null。
+    ```js
+    JSON.stringify({ x: undefined, y: Object, z: Symbol("") }); // '{}'
+    JSON.stringify([undefined, Object, Symbol("")]); // '[null,null,null]'
+    
+    JSON.stringify([null, NaN, -NaN, Infinity, -Infinity]); // [null,null,null,null,null]
+    // 隐式类型转换就会调用包装类，因此会先调用 Number => NaN
+    // 之后再转化为 null
+    JSON.stringify([Number('123a'), +'123a', 1/0]); // 1/0 => Infinity => null // '[null,null,null]'
+    ```
+    - 所有以 symbol 为属性键的属性都会被完全忽略掉，即便 replacer 参数中强制指定包含了它们。
+    ```js
+    JSON.stringify({ [Symbol("foo")]: "foo" }); // '{}'
+    JSON.stringify({ [Symbol.for("foo")]: "foo" }, [Symbol.for("foo")]); // '{}'
+    ```
+
 - replacer（可选）：
     - 如果该参数是一个函数，则在序列化过程中，被序列化的值的每个属性都会经过该函数的转换和处理；
     - 如果该参数是一个数组，则只有包含在这个数组中的属性名才会被序列化到最终的 JSON 字符串中；
