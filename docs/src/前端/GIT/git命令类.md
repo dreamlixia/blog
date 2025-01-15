@@ -73,3 +73,14 @@ stash@{index}: WIP on [分支名]: [最近一次的commitID] [最近一次的提
 - `git stash -a` 对所有文件进行储藏（git stash [-a|--all]）
 
 可以通过命令 `git stash --help` 查阅更多相关命令
+
+git cherry-pick
+---
+用于将一个或多个提交从一个分支应用到另一个分支。
+
+使用：`git cherry-pick <commit-hash>`
+
+撤销 cherry-pick: 
+- `git reset --hard HEAD~1` HEAD~1 表示回退到上一个提交。如果你进行了多个 cherry-pick 操作，可以根据需要调整回退的提交数量。
+- `git revert <commit-hash>` \<commit-hash\> 是你想要撤销的 cherry-pick 提交的哈希值。git revert 会创建一个新的提交，撤销指定的提交。适用于已经进行了其他提交，并且不希望丢失这些提交的情况。
+- `git reset --hard <reflog-hash>` \<reflog-hash\> 是 `git reflog` 记录中的哈希值，表示你想要回退到的状态。适用于不确定具体的提交哈希，或者需要撤销多个操作，可以使用 git reflog 查看最近的操作记录，并回退到指定的状态。
