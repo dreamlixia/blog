@@ -24,9 +24,10 @@ cd jlxtrysch && touch package.json
 
 添加包信息
 ---
+通过使用 @lynseyjen/jlxtrysch 代替 jlxtrysch，我们会创建一个在我们**用户名** scope 下的一个包。这个叫做 scoped package（域级包）。
 ```json
 {
-    "name": "@bamlehorse/jlxtrysch",
+    "name": "@lynseyjen/jlxtrysch",
     "version": "1.0.0"
 }
 ```
@@ -77,6 +78,10 @@ module.exports = function jlxtrysch(string) {
 }
 ```
 
+打包
+---
+Webpack、Parcel、Rollup 等打包工具。配置文件去 /面试题/打包工具/Rollup中查看。
+
 版本
 ---
 发布前需要升级包版本，每发布一次都需要执行更新一次版本
@@ -100,3 +105,9 @@ npm publish --access=public
 就可以在npm上找到自己发布的包了
 ---
 [https://www.npmjs.com/](https://www.npmjs.com/)
+
+如果某版本的包有问题，我们还可以将其**撤回**
+---
+```bash
+npm unpublish [pkg]@[version]
+```

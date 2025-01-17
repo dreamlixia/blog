@@ -84,3 +84,15 @@ git cherry-pick
 - `git reset --hard HEAD~1` HEAD~1 表示回退到上一个提交。如果你进行了多个 cherry-pick 操作，可以根据需要调整回退的提交数量。
 - `git revert <commit-hash>` \<commit-hash\> 是你想要撤销的 cherry-pick 提交的哈希值。git revert 会创建一个新的提交，撤销指定的提交。适用于已经进行了其他提交，并且不希望丢失这些提交的情况。
 - `git reset --hard <reflog-hash>` \<reflog-hash\> 是 `git reflog` 记录中的哈希值，表示你想要回退到的状态。适用于不确定具体的提交哈希，或者需要撤销多个操作，可以使用 git reflog 查看最近的操作记录，并回退到指定的状态。
+
+git rm -r --cached [file name]
+---
+在 .gitignore 文件中列出的文件夹仍然被上传到 GitHub，可能是因为这些文件夹或文件已经被 Git 跟踪, 使用该命令可以停止跟踪已经被 Git 跟踪的文件
+```bash
+git rm -r --cached node_modules
+git commit -m "Stop tracking node_modules"
+git push origin main
+```
+
+使用Tree命令打印项目树时不打印node_modules
+`tree -I 'node_modules'`
