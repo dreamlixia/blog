@@ -84,10 +84,23 @@ Webpack、Parcel、Rollup 等打包工具。配置文件去 /面试题/打包工
 
 版本
 ---
-发布前需要升级包版本，每发布一次都需要执行更新一次版本
+发布前需要升级包版本，每发布一次都需要执行更新一次版本，三种方式：
+- 递增主版本号：
 ```bash
 npm version major
 ```
+- 递增次版本号：
+```bash
+npm version minor
+```
+- 递增补丁版本号：
+```bash
+npm version patch
+```
+注意事项  
+Git 提交和标签：npm version 命令会自动创建一个新的 Git 提交和标签。如果你不希望创建 Git 提交和标签，可以使用 --no-git-tag-version 选项：
+`npm version major --no-git-tag-version`
+手动修改版本号：你也可以手动修改 package.json 文件中的版本号，然后提交更改。
 
 发布包
 ---
@@ -110,4 +123,20 @@ npm publish --access=public
 ---
 ```bash
 npm unpublish [pkg]@[version]
+```
+
+指定发布到npm市场中的文件包含哪些
+---
+1. 创建.npmignore文件，其中写需要忽略的文件。
+2. 在package.json 中增加files:[]项，其中包含在npm市场中能看到的文件。
+
+验证发布的包内容
+---
+你可以使用 npm pack 命令在本地创建一个 tarball 文件，检查包中包含的文件：
+```bash
+npm pack
+```
+这将创建一个 .tgz 文件，你可以解压缩并检查其中包含的文件。
+```bash
+tar -xvzf your-package-name-1.0.0.tgz
 ```
