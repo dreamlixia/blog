@@ -87,7 +87,8 @@ git cherry-pick
 
 git rm -r --cached [file name]
 ---
-在 .gitignore 文件中列出的文件夹仍然被上传到 GitHub，可能是因为这些文件夹或文件已经被 Git 跟踪, 使用该命令可以停止跟踪已经被 Git 跟踪的文件
+- 在 .gitignore 文件中列出的文件夹/文件仍然被上传到 GitHub，可能是因为这些文件夹或文件已经被 Git 跟踪, 使用该命令可以停止跟踪已经被 Git 跟踪的文件
+- 在 .npmignore 文件中添加的文件夹/文件仍然被上传到 npm 市场（https://www.npmjs.com/），原因相同，同样可以用此方法清除已被 Git 跟踪的文件
 ```bash
 git rm -r --cached node_modules
 git commit -m "Stop tracking node_modules"
@@ -96,3 +97,11 @@ git push origin main
 
 使用Tree命令打印项目树时不打印node_modules
 `tree -I 'node_modules'`
+
+git config --global pull.rebase true
+---
+设置pull.rebase选项为true，这样在执行git pull命令时，Git会使用rebase而不是merge来更新分支。这有助于保持分支历史的线性。
+
+git config --global fetch.prune true
+---
+设置fetch.prune选项为true，这样在执行git fetch命令时，Git会自动删除本地分支中不再存在的远程分支。

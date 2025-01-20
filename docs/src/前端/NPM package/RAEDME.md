@@ -127,8 +127,21 @@ npm unpublish [pkg]@[version]
 
 指定发布到npm市场中的文件包含哪些
 ---
-1. 创建.npmignore文件，其中写需要忽略的文件。
-2. 在package.json 中增加files:[]项，其中包含在npm市场中能看到的文件。
+1. 创建.npmignore文件，其中写需要**忽略**的文件。
+```
+node_modules/
+package/
+```
+2. 在package.json 中增加files:[]项，其中包含在npm市场中**能看到的文件**。
+```json
+{
+    "files": [
+        "lib",
+        "LICENSE",
+        "README.md"
+    ],
+}
+```
 
 验证发布的包内容
 ---
