@@ -1,5 +1,5 @@
 ---
-title: vs code 插件
+title: vs code 插件开发
 ---
 
 镜像
@@ -27,6 +27,7 @@ package.json
   "engines": {
     "vscode": "^1.54.0"
   },
+  // 删除 repository 可以对外隐藏插件代码仓库地址
   "repository": {
     "type": "git",
     "url": "git@github.com:xxx/xxx.git"
@@ -34,23 +35,40 @@ package.json
   "categories": [
     "Other"
   ],
+  "main": "./dist/extension.js",
+  /** 激活事件 - 调用命令执行 */
   "activationEvents": [
     "onCommand:extension.xxx",
+    // 多个命令
+    // "onCommand:extension.xxx",
+    // "onCommand:extension.xxx",
     "onStartupFinished"
   ],
+  /** 激活事件 - 自动激活扩展 */
+  // "activationEvents": ["*"],
   "activationEvents": [],
-  "main": "./dist/extension.js",
+  // 配置命令，命令id唯一，可以配置多个
   "contributes": {
     "commands": [
       {
         "command": "xxxx.xxx",
         "title": "XXX"
-      }
+      },
+      // 多个命令
+      // {
+      //   "command": "xxxx.xxx",
+      //   "title": "XXX"
+      // },
+      // {
+      //   "command": "xxxx.xxx",
+      //   "title": "XXX"
+      // }
     ]
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
     "compile": "webpack",
+    // 本地调试运行 npm run watch
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
     "compile-tests": "tsc -p . --outDir out",
@@ -104,3 +122,19 @@ vsce package
 vsce publish
 ```
 去vscode插件市场上传打包出来的 .vsix 包即可。 `https://marketplace.visualstudio.com/manage/publishers/lynsey`
+
+- 版本
+
+执行命令后自动在 package.json 的 version 版本基础上递增，可手动修改当前版本号，然后执行vsce publish发布。  
+如版本已存在，可以删除，使用 `git tag -d v0.0.4`、`git push origin --delete v0.0.4`清除已有版本。如打包完的名称可能重复，可提前删除或修改已打包的文件名。  
+
+  - 只打包不发布：`vsce package`，本地打包出一个.vsix包
+  - 补丁版本：`vsce publish patch`, **# 版本 +0.0.1**，0.0.1 -> 0.0.2 小修复
+  - 次版本：`vace publish minor`, **# 版本 +0.1.0**，0.0.1 -> 0.1.1 新功能
+  - 主版本：`vsce publish major`, **# 版本 +1.0.0**，0.0.1 -> 1.0.1 重大更新
+
+  - 指定版本发布：`vsce publish 2.3.4`
+  - 预发布版本：`vsce publish -pre-release`
+
+- 回滚
+vscode 插件市场不支持回滚，可以重新发布补丁版本，可以手动修改版本号再发布等。
